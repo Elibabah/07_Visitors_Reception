@@ -1,7 +1,7 @@
 {
     "name": "07_visitors_reception",
     "version": "1.0.0",
-    "description": "data project",
+    "description": "data",
     "main": "index.js",
     "scripts": {
         "test": "test"
