@@ -123,11 +123,11 @@ La interfaz debe permitir a los visitantes:
 ```
 
 ## 5. Diagrama de flujo
-
+![DiagramaDeFlujo](./assets/flowchart.jpg)
 ---
 
 ## 6. Prototipado
-
+![Sketch](./assets/sketch.jpg)
 ---
 
 ## 7. Producto final
