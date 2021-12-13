@@ -116,6 +116,7 @@ La interfaz debe permitir a los visitantes:
 │   ├── visitors.html
 │   ├── visitors.js
 │   ├── admin.js
+|   ├── admin.html
 │   └── administration.js
 └── test
     ├── app.spec.js
