@@ -123,11 +123,14 @@ La interfaz debe permitir a los visitantes:
 ```
 
 ## 5. Diagrama de flujo
+
 ![DiagramaDeFlujo](./assets/flowchart.jpg)
+![DiagramaDeFlujo_creatly](./assets/flujo_visitors.jpg)
+
 ---
 
 ## 6. Prototipado
-![Sketch](./assets/sketch.jpg)
----
+
+## ![Sketch](./assets/sketch.jpg)
 
 ## 7. Producto final
