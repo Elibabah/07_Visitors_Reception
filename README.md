@@ -14,12 +14,13 @@ FALTA:
 
 Índice
 
-    2. Definición de usuario
-    3. Historias de usuario
-    3. Aceptance Criteria
-    4. Technical Requirements
-    5. Hacker edition
-    6. Expected Learning Outcomes
+    1. Definición de usuario
+    2. Historias de usuario
+    3. Conocimientos técnicos
+    4. Boilerplate
+    5. Diagrama de flujo
+    6. Prototipado
+    7. Producto final
 
 ---
 
@@ -58,14 +59,7 @@ La interfaz debe permitir a los visitantes:
   - Mostrar cuántos visitantes se han registrado durante el día.
   - Poder añadir una marca de los visitantes que han abandonado el edificio como "Fecha de salida" y la fecha de salida.
 
-## 3. Criterios de aceptación
-
-- Interfaz responsiva para tabletas y computadoras de escritorio
-- Cubrir todas las historias de usuario
-
----
-
-## 4. Requerimientos técnicos
+## 3. Conocimientos técnicos
 
 - Uso de JavaScript Vanilla ES6 (ECMAScript 2015 y superior), HTML5, CSS3
 
@@ -95,17 +89,15 @@ La interfaz debe permitir a los visitantes:
 
 - Aplicación responsiva (tabletas & desktops)
 
-- HTML semántico
+- Documentación del SDLC ágil en ReadMe.md. Planificación de Backlog
 
-- Documentación de todos los pasos del SDLC ágil en ReadMe.md. Planificación de Backlog
-
-- Uso de Bootstrap Framework
+- Bootstrap Framework
 
 - Persistencia de los datos. Almacenar los datos en la base de datos de Firestore.
 
 - Leer los datos de la base de datos para mostrarlos en la vista de administradores.
 
-## 5. _Boilerplate_
+## 4. _Boilerplate_
 
 ```text
 ./
@@ -130,12 +122,12 @@ La interfaz debe permitir a los visitantes:
     └── index.html
 ```
 
-## 6. Diagrama de flujo
+## 5. Diagrama de flujo
 
 ---
 
-## 7. Prototipado
+## 6. Prototipado
 
 ---
 
-## 8. Producto final
+## 7. Producto final
