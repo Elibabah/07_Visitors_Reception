@@ -134,4 +134,10 @@ La interfaz debe permitir a los visitantes:
 
 ## ![Sketch](./assets/sketch.jpg)
 
+![MarvelUI1](./assets/UI/Marvel1.png)
+![MarvelUI2](./assets/UI/Marvel2.png)
+![MarvelUI3](./assets/UI/Marvel3.png)
+![MarvelUI4](./assets/UI/Marvel4.png)
+![MarvelUI5](./assets/UI/Marvel5.png)
+
 ## 7. Producto final
