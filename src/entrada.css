@@ -1,0 +1,108 @@
+welcome {
+    display: grid;
+    width: auto;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 4fr 1fr 0.5fr;
+    grid-template-areas: "header header header" "main main main" "admin admin admin" "footer footer footer";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
+    background-color: #000;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: burlywood;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+admin {
+    grid-area: admin;
+    display: block;
+    margin: auto;
+}
+
+aside {
+    width: 35%;
+    display: block;
+    margin: auto;
+    height: 100%;
+    padding-bottom: 10%;
+    border-style: solid;
+    background-color: #fff;
+    border-radius: 5%;
+}
+
+.logo {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+.bienvenida {
+    margin-top: 0%;
+    margin-bottom: 21%;
+}
+
+#botonRegistro {
+    padding-top: 3%;
+    padding-right: 11%;
+    padding-bottom: 3%;
+    padding-left: 11%;
+    font-size: 155%;
+    border-radius: 3%;
+}
+
+#botonRegistro:hover {
+    background-color: #000;
+}
+
+contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-areas: "header-foo header-foo header-foo" "by by by";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
+}
+
+header-foo {
+    grid-area: header-foo;
+    margin-bottom: 0.5%;
+}
+
+by {
+    grid-area: by;
+    margin-bottom: 1.5%;
+}
+
+#beto {
+    text-align: left;
+    float: left;
+    margin-left: 30%;
+}
+
+#elias {
+    text-align: right;
+    float: right;
+    margin-right: 30%;
+}
+
+.fab {
+    color: #fff;
+    font-size: 120%;
+}
