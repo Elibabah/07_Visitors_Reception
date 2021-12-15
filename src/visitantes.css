@@ -29,7 +29,7 @@ main {
 }
 
 .logo {
-    width: 85%;
+    width: 65%;
     margin-top: 5%;
     display: block;
     margin: auto;
@@ -40,15 +40,36 @@ main {
 /*---------------------- Form -------------------*/
 
 .form {
+    margin-top: 1%;
     border-style: solid;
-    height: 95%;
-    width: 70%;
+    height: 98%;
+    width: 60%;
     padding: 5%;
     background-color: #fff;
     display: block;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     border-radius: 1%;
+}
+
+.form-check-label-1 {
+    margin-right: 10%;
+    font-size: 115%;
+    margin-bottom: 5%;
+}
+
+.form-check-label-2 {
+    margin-left: 10%;
+    font-size: 115%;
+    margin-bottom: 5%;
+}
+
+#botonSiguiente {
+    padding-left: 27%;
+    padding-right: 27%;
+    margin-bottom: 1%;
+    margin-top: 2%;
 }
 
 
@@ -56,7 +77,6 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: burlywood;
     text-align: center;
     background-color: #000;
     color: #fff;
@@ -86,18 +106,23 @@ by {
 #beto {
     text-align: left;
     float: left;
-    margin-left: 30%;
+    margin-left: 18%;
 }
 
 #elias {
     text-align: right;
     float: right;
-    margin-right: 30%;
+    margin-right: 18%;
 }
 
 .fab {
     color: #fff;
     font-size: 120%;
+}
+
+.fab:hover {
+    color: #fff;
+    font-size: 130%;
 }
 
 
