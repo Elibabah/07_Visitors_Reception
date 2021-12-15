@@ -94,8 +94,8 @@ contact {
 
 header-foo {
     grid-area: header-foo;
-    margin-bottom: 0.5%;
-    margin-top: 1.2%;
+    margin-bottom: 0%;
+    margin-top: 0%;
 }
 
 by {
@@ -106,13 +106,13 @@ by {
 #beto {
     text-align: left;
     float: left;
-    margin-left: 18%;
+    margin-left: 15%;
 }
 
 #elias {
     text-align: right;
     float: right;
-    margin-right: 18%;
+    margin-right: 15%;
 }
 
 .fab {
