@@ -1,3 +1,104 @@
-h1 {
-    text-align: center;
+registro {
+    display: grid;
+    width: auto;
+    height: 100vh;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 0.5fr 4fr 0.5fr;
+    grid-template-areas: "header header header" "aside main main" "footer footer footer";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
 }
+
+header {
+    grid-area: header;
+    text-align: center;
+    margin-top: 2.1%;
+}
+
+aside {
+    grid-area: aside;
+    text-align: center;
+    color: darkgray;
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    background-color: maroon;
+}
+
+.logo {
+    width: 85%;
+    margin-top: 5%;
+    display: block;
+    margin: auto;
+    /*margin-left: 20%;*/
+}
+
+
+/*---------------------- Form -------------------*/
+
+.form {
+    border-style: solid;
+    height: 95%;
+    width: 70%;
+    padding: 5%;
+    background-color: #fff;
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 1%;
+}
+
+
+/*---------------------- Footer ------------------*/
+
+footer {
+    grid-area: footer;
+    background-color: burlywood;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-areas: "header-foo header-foo header-foo" "by by by";
+    padding: 0%;
+    column-gap: 0%;
+    row-gap: 0%;
+}
+
+header-foo {
+    grid-area: header-foo;
+    margin-bottom: 0.5%;
+    margin-top: 1.2%;
+}
+
+by {
+    grid-area: by;
+    margin-bottom: 1.5%;
+}
+
+#beto {
+    text-align: left;
+    float: left;
+    margin-left: 30%;
+}
+
+#elias {
+    text-align: right;
+    float: right;
+    margin-right: 30%;
+}
+
+.fab {
+    color: #fff;
+    font-size: 120%;
+}
+
+
+/*----------------- Termina Footer ---------------*/
