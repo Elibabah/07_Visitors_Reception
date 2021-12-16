@@ -1,0 +1,91 @@
+body {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 1rem 35%;
+  border-radius: 15px;
+}
+.logo {
+  padding: 0rem;
+}
+h3 {
+  font-size: 1rem;
+}
+.responsive {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+.inputs {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.btns {
+  display: flex;
+  gap: 0.5rem 0.5rem;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-areas: "header-foo header-foo header-foo" "by by by";
+  padding: 0%;
+  column-gap: 0%;
+  row-gap: 0%;
+}
+
+header-foo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: header-foo;
+  margin-bottom: 0.5%;
+  color: #fff;
+}
+
+by {
+  grid-area: by;
+  margin-bottom: 1.5%;
+}
+
+#beto {
+  text-align: left;
+  float: left;
+  color: #fff;
+  margin-left: 30%;
+}
+
+#elias {
+  text-align: right;
+  color: #fff;
+  float: right;
+  margin-right: 30%;
+}
+
+.fab {
+  color: #fff;
+  font-size: 120%;
+}
+@media only screen and (max-width: 860px) {
+  main {
+    margin: 0.5rem 20%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  main {
+    margin: 0.5rem 10%;
+  }
+}
