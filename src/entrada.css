@@ -24,9 +24,9 @@ main {
 footer {
     grid-area: footer;
     text-align: center;
-    /*background-color: maroon;*/
-    opacity: 0.8;
+    opacity: 0.9;
     color: #fff;
+    background-color: #000;
 }
 
 admin {
@@ -39,7 +39,7 @@ aside {
     width: 350px;
     display: block;
     margin: auto;
-    height: 98%;
+    height: 510px;
     padding-bottom: 10%;
     border-style: solid;
     background-color: #fff;
@@ -66,6 +66,7 @@ aside {
     font-size: 155%;
     border-radius: 4%;
     margin-top: 3%;
+    margin-bottom: 3%;
     background-color: maroon;
 }
 
@@ -74,7 +75,7 @@ aside {
 }
 
 #botonAdmin {
-    margin-top: 25%;
+    margin-top: 3%;
 }
 
 contact {
@@ -85,6 +86,7 @@ contact {
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
+    background-color: #000;
 }
 
 header-foo {
@@ -96,18 +98,21 @@ header-foo {
 by {
     grid-area: by;
     margin-bottom: 1.5%;
+    background-color: #000;
 }
 
 #beto {
     text-align: left;
     float: left;
     margin-left: 30%;
+    background-color: #000;
 }
 
 #elias {
     text-align: right;
     float: right;
     margin-right: 30%;
+    background-color: #000;
 }
 
 .fab {
