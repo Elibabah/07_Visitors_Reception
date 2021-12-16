@@ -1,0 +1,64 @@
+{
+    "coworking_Ajusco": {
+        "Ajusco Coding Bootcmap": {
+            "persona": ["Alberto", "Amanda", "David", "Fernanda", "Jaziel", "Mónica", "Óscar", "Vania"]
+        },
+        "Amazon": {
+            "persona": ["Andy Jassy", "Jeff Bezos"]
+        },
+        "Apple": {
+            "persona": ["Craig Federighi", "Eddy Cue", "Katherine Adams", "Tim Cook"]
+        },
+        "Cisco": {
+            "persona": ["Chuck Robbins", "Isidro Quintana", "Juan Pablo Estévez", "Sandra Lerner"]
+        },
+        "Facebook (Meta)": {
+            "persona": ["Mark Zuckerberg"]
+        },
+        "freeCodeCamp": {
+            "persona": ["Quincy Larson"]
+        },
+        "GBM": {
+            "persona": ["Fernando Ramos", "Javier Martínez Morodo"]
+        },
+        "Google (Alphabet)": {
+            "persona": ["Sundar Pichai"]
+        },
+        "IBM": {
+            "persona": ["Arvind Krishna", "James Moon Whitehurst"]
+        },
+        "Intel": {
+            "persona": ["Omar S. Ishrak", "Patrick Paul Gelsinger"]
+        },
+        "Laboratoria": {
+            "persona": ["Mariana Costa Checa"]
+        },
+        "Microsoft": {
+            "persona": ["Satya Narayana Nadella"]
+        },
+        "Nasa": {
+            "persona": ["Bill Nelson"]
+        },
+        "Neuralink": {
+            "persona": ["Elon Musk"]
+        },
+        "Oracle": {
+            "persona": ["Jeff Henley", "Larry Ellison", "Safra Catz"]
+        },
+        "Platzi": {
+            "persona": ["Christian Van Der Henst", "Freddy Vega"]
+        },
+        "Samsung": {
+            "persona": ["Bahk Jae-wan", "Kim Ki-nam", "Koh Dong-jin"]
+        },
+        "SpaceX": {
+            "persona": ["Elon Musk"]
+        },
+        "Tesla": {
+            "persona": ["Elon Musk"]
+        },
+        "Youtube": {
+            "persona": ["John Farrell", "Susan Wojcicki"]
+        }
+    }
+}
