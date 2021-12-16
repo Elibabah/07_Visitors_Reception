@@ -24,12 +24,29 @@ const datosRegistro = () => {
             }
             /*--------------- Iterar personas ------------------*/
 
-            /*for (let [index, people] in personasArray[0].personas) {
-                      console.log(personasArray);
-                      console.log(index, people);
-                              }*/
+            for (let people in personasArray[persona]) {
+                console.log(personasArray);
+                console.log(people);
+            }
         });
     //.catch((error) => console.log(error));
 };
 
 datosRegistro();
+
+/*------------ Función iterar empresas ---------------------*/
+
+/*let traerEmpresas = () => {
+    console.log(registro);
+    for (let business in empresasArray[0].coworking_Ajusco) {
+        console.log(business);
+
+        personasArray.push(business);
+        console.log(personasArray);
+
+        let imprimirEmpresas = document.getElementById("company");
+        imprimirEmpresas.innerHTML += `   
+                        <option value="${business}">
+                    `;
+    }
+};*/
