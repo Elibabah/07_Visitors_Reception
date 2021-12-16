@@ -24,7 +24,6 @@ main {
 footer {
     grid-area: footer;
     text-align: center;
-    opacity: 0.9;
     color: #fff;
     background-color: #000;
 }
