@@ -14,9 +14,12 @@ const datosRegistro = () => {
                 console.log(business);
 
                 let imprimirEmpresas = document.getElementById("company");
-                imprimirEmpresas.innerHTML += `   
-                        <option value="${business}">
-                    `;
+                imprimirEmpresas.innerHTML += `  
+                
+                
+                        <option value="${business}"></option>
+
+                `;
             }
             /*--------------- Evento por compañía ------------------*/
 
