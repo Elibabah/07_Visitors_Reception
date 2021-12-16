@@ -1,7 +1,6 @@
 const registro = "../data_form/registro.json";
 
 let empresasArray = [];
-let personasArray = [];
 
 const datosRegistro = () => {
     fetch(registro)
@@ -14,39 +13,43 @@ const datosRegistro = () => {
             for (let business in empresasArray[0].coworking_Ajusco) {
                 console.log(business);
 
-                personasArray.push(business);
-                console.log(personasArray);
-
                 let imprimirEmpresas = document.getElementById("company");
                 imprimirEmpresas.innerHTML += `   
                         <option value="${business}">
                     `;
             }
-            /*--------------- Iterar personas ------------------*/
+            /*--------------- Evento por compañía ------------------*/
 
-            for (let people in personasArray[persona]) {
-                console.log(personasArray);
-                console.log(people);
-            }
+            let elegir = document.getElementById("companias");
+
+            elegir.addEventListener("change", () => {
+                let porEmpresa = document.getElementById("companias").value;
+                console.log("estoy escuchando");
+                console.log(porEmpresa);
+
+                /*------------ Iterar personas ------------*/
+
+                console.log(empresasArray[0]["coworking_Ajusco"][porEmpresa].persona);
+
+                cleanPeople();
+                for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
+                        .persona) {
+                    console.log(personas);
+
+                    let imprimirPersonas = document.getElementById("people");
+                    imprimirPersonas.innerHTML += `
+                    <option value="${personas}">
+                    `;
+                }
+            });
         });
     //.catch((error) => console.log(error));
 };
 
 datosRegistro();
 
-/*------------ Función iterar empresas ---------------------*/
+/*------------ Función limpiar personas -------------*/
 
-/*let traerEmpresas = () => {
-    console.log(registro);
-    for (let business in empresasArray[0].coworking_Ajusco) {
-        console.log(business);
-
-        personasArray.push(business);
-        console.log(personasArray);
-
-        let imprimirEmpresas = document.getElementById("company");
-        imprimirEmpresas.innerHTML += `   
-                        <option value="${business}">
-                    `;
-    }
-};*/
+let cleanPeople = () => {
+    document.getElementById("people").innerHTML = "";
+};
