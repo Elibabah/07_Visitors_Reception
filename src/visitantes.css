@@ -13,7 +13,7 @@ registro {
 header {
     grid-area: header;
     text-align: center;
-    margin-top: 2.1%;
+    margin-top: 1.5%;
 }
 
 aside {
@@ -29,7 +29,7 @@ main {
 }
 
 .logo {
-    width: 85%;
+    width: 60%;
     margin-top: 5%;
     display: block;
     margin: auto;
@@ -42,13 +42,36 @@ main {
 .form {
     border-style: solid;
     height: 95%;
-    width: 70%;
+    width: 60%;
     padding: 5%;
     background-color: #fff;
     display: block;
     margin: auto;
-    margin-top: 2%;
     border-radius: 1%;
+    margin-top: 3%;
+}
+
+.form-check-label-1 {
+    margin-right: 10%;
+    font-size: 115%;
+    margin-bottom: 5%;
+}
+
+.form-check-label-2 {
+    margin-left: 10%;
+    font-size: 115%;
+    margin-bottom: 5%;
+}
+
+#botonSiguiente {
+    padding-left: 27%;
+    padding-right: 27%;
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+
+#botonRegresar {
+    margin-bottom: 5%;
 }
 
 
@@ -56,10 +79,11 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: burlywood;
     text-align: center;
     background-color: #000;
     color: #fff;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 contact {
@@ -72,32 +96,26 @@ contact {
     row-gap: 0%;
 }
 
-header-foo {
-    grid-area: header-foo;
-    margin-bottom: 0.5%;
-    margin-top: 1.2%;
-}
-
-by {
-    grid-area: by;
-    margin-bottom: 1.5%;
-}
-
 #beto {
     text-align: left;
     float: left;
-    margin-left: 30%;
+    margin-left: 15%;
 }
 
 #elias {
     text-align: right;
     float: right;
-    margin-right: 30%;
+    margin-right: 15%;
 }
 
 .fab {
     color: #fff;
     font-size: 120%;
+}
+
+.fab:hover {
+    color: #fff;
+    font-size: 130%;
 }
 
 

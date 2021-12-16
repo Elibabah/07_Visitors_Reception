@@ -23,10 +23,9 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: burlywood;
     text-align: center;
-    background-color: #000;
     color: #fff;
+    background-color: #000;
 }
 
 admin {
@@ -39,7 +38,7 @@ aside {
     width: 350px;
     display: block;
     margin: auto;
-    height: 98%;
+    height: 510px;
     padding-bottom: 10%;
     border-style: solid;
     background-color: #fff;
@@ -64,16 +63,18 @@ aside {
     padding-bottom: 3%;
     padding-left: 11%;
     font-size: 155%;
-    border-radius: 3%;
+    border-radius: 4%;
     margin-top: 3%;
+    margin-bottom: 3%;
+    background-color: maroon;
 }
 
 #botonRegistro:hover {
-    background-color: #000;
+    background-color: brown;
 }
 
 #botonAdmin {
-    margin-top: 25%;
+    margin-top: 3%;
 }
 
 contact {
@@ -84,31 +85,40 @@ contact {
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
+    background-color: #000;
 }
 
 header-foo {
     grid-area: header-foo;
     margin-bottom: 0.5%;
+    margin-top: 1.1%;
 }
 
 by {
     grid-area: by;
     margin-bottom: 1.5%;
+    background-color: #000;
 }
 
 #beto {
     text-align: left;
     float: left;
     margin-left: 30%;
+    background-color: #000;
 }
 
 #elias {
     text-align: right;
     float: right;
     margin-right: 30%;
+    background-color: #000;
 }
 
 .fab {
     color: #fff;
     font-size: 120%;
+}
+
+.fab:hover {
+    font-size: 130%;
 }
