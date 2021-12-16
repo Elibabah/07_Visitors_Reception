@@ -26,6 +26,7 @@ footer {
     text-align: center;
     opacity: 0.9;
     color: #fff;
+    background-color: #000;
 }
 
 admin {
@@ -74,7 +75,7 @@ aside {
 }
 
 #botonAdmin {
-    margin-top: 1%;
+    margin-top: 3%;
 }
 
 contact {
