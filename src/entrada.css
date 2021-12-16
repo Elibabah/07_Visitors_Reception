@@ -86,6 +86,7 @@ contact {
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
+    background-color: #000;
 }
 
 header-foo {
@@ -97,18 +98,21 @@ header-foo {
 by {
     grid-area: by;
     margin-bottom: 1.5%;
+    background-color: #000;
 }
 
 #beto {
     text-align: left;
     float: left;
     margin-left: 30%;
+    background-color: #000;
 }
 
 #elias {
     text-align: right;
     float: right;
     margin-right: 30%;
+    background-color: #000;
 }
 
 .fab {
