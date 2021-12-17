@@ -36,10 +36,10 @@
                 <!--Empieza FORM-->
                 <form action="">
                     <label for="exampleDataList" class="form-label" for="validationCustom01">Nombre completo</label>
-                    <input type="text" placeholder="Nombre completo" class="form-control" required><br>
+                    <input type="text" placeholder="Nombre completo" class="form-control" id="nombre" required><br>
 
                     <label for="exampleDataList" class="form-label">Email o Teléfono</label>
-                    <input type="email, number" placeholder="Email / Teléfono" class="form-control" required><br>
+                    <input type="email, number" placeholder="Email / Teléfono" class="form-control" id="contact" required><br>
 
 
                     <label for="exampleDataList" class="form-label">Compañía a la cual visita</label>
@@ -49,26 +49,23 @@
 
 
                     <label for="exampleDataList" class="form-label">A quién visita</label>
-                    <input class="form-control" list="people" id="" placeholder="Escribir para buscar..." required><br>
+                    <input class="form-control" list="people" id="persona" placeholder="Escribir para buscar..." required><br>
                     <datalist id="people">
                     </datalist>
 
 
 
+
                     <label for="exampleDataList" class="form-label">Asunto</label>
-                    <input class="form-control" list="asunto" id="" placeholder="Escribir para buscar..." required><br>
-                    <datalist id="asunto">
-                        <option value="Empleo">
-                        <option value="Limpieza">
-                        <option value="Negocios">
-                        <option value="Personal">
-                        <option value="Proveedor">
-                        <option value="Trabajador">
-                    </datalist>
-
-
-
-
+                    <select class="form-select" aria-label="Default select example" id="asunto" required>
+                        <option selected></option>
+                        <option value="1">Empleo</option>
+                        <option value="2">Limpieza</option>
+                        <option value="3">Negocios</option>
+                        <option value="4">Personal</option>
+                        <option value="5">Proveedor</option>
+                        <option value="6">Trabajador</option>
+                    </select><br>
 
 
                     <label for="exampleDataList" class="form-label">Cuenta con cita</label><br>
@@ -77,7 +74,7 @@
                     <label for="si-no" class="form-check-label-2"><input id="si-no" type="radio" name="si-no" required>No</label>
                     <br>
 
-                    <button type="submit" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
+                    <button type="button" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
                     <a href="./index.html"><button type="button" class="btn btn-outline-dark" id="botonRegresar">Regresar</button></a>
                 </form>
 

@@ -14,9 +14,12 @@ const datosRegistro = () => {
                 console.log(business);
 
                 let imprimirEmpresas = document.getElementById("company");
-                imprimirEmpresas.innerHTML += `   
-                        <option value="${business}">
-                    `;
+                imprimirEmpresas.innerHTML += `  
+                
+                
+                        <option value="${business}"></option>
+
+                `;
             }
             /*--------------- Evento por compañía ------------------*/
 
@@ -53,3 +56,37 @@ datosRegistro();
 let cleanPeople = () => {
     document.getElementById("people").innerHTML = "";
 };
+
+/*---------- Limpiar valores inputs ---------------*/
+
+/*let cleanInputs = () => {
+    document.getElementById("nombre") = "";
+    document.getElementById("contact") = "";
+    document.getElementById("companias") = "";
+    document.getElementById("persona") = "";
+    document.getElementById("asunto") = "";
+    document.getElementById("si-no") = "";
+}*/
+
+/*---------- Función botón guardar datos --------------*/
+
+let keepForm = () => {
+    let botonSiguiente = document.getElementById("botonSiguiente");
+
+    botonSiguiente.addEventListener("click", function() {
+        /*Guardar datos inputs*/
+
+        let formObject = {
+            nombre: document.getElementById("nombre").value,
+            contacto: document.getElementById("contact").value,
+            empresa: document.getElementById("companias").value,
+            persona: document.getElementById("persona").value,
+            asunto: document.getElementById("asunto").value,
+            cita: document.getElementById("si-no").value,
+        };
+
+        console.log(formObject);
+    });
+};
+
+keepForm();
