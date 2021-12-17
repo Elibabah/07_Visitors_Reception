@@ -1,6 +1,6 @@
 # 07_Visitors_Reception
 
-_Coworking 22_ es un icónico edificio al sur de la Ciudad de México el cual reúne las sedes en México de las empresas más importantes del mundo: Apple, Amazon, Cisco, IBM, Google, Microsoft, Tesla, SpaceX...
+_Coworking Ajusco 222_ es un icónico edificio al sur de la Ciudad de México el cual reúne las sedes en México de las empresas más importantes del mundo: Apple, Amazon, Cisco, IBM, Google, Microsoft, Tesla, SpaceX...
 
 Por ello, el control de aflujo (entrada/salida) y la seguridad demandan especial atención. Tratándose de un edificio 100% tecnológico, esta app da respuesta al check-in / check-out de una forma ágil, eficiente, limpia y segura.
 
