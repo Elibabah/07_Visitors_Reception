@@ -1,10 +1,10 @@
 # 07_Visitors_Reception
 
-Central de recepción de visitantes construida con JavaScript, HTML, CSS y Firebase.
+_Coworking 22_ es un icónico edificio al sur de la Ciudad de México el cual reúne las sedes en México de las empresas más importantes del mundo: Apple, Amazon, Cisco, IBM, Google, Microsoft, Tesla, SpaceX...
 
-FALTA:
+Por ello, el control de aflujo (entrada/salida) y la seguridad demandan especial atención. Tratándose de un edificio 100% tecnológico, esta app da respuesta al check-in / check-out de una forma ágil, eficiente, limpia y segura.
 
-- Personalizar el proyecto para un coworking como: [Terminal 1](https://terminal1.mx/)
+Especialmente en un mundo que enfrenta una crisis sanitaria, esta APP VisitorsCheck da respuesta a nuestras necesidades del futuro
 
 ---
 
@@ -26,7 +26,7 @@ FALTA:
 
 ## 1. Definición de usuario
 
-Esta aplicación tiene la doble faceta de servir para dos tipos de usuarios vinculados a dos partes de un mismo problema: el control de aflujo en un edificio de trabajo.
+Esta aplicación sirve a dos tipos de usuarios vinculados a un mismo problema: el control de aflujo en un edificio de trabajo.
 
 **Usuario 1: Visitantes del edificio de coworking**
 
@@ -34,7 +34,7 @@ Esta aplicación tiene la doble faceta de servir para dos tipos de usuarios vinc
 
 ## 2. Historias de usuario:
 
-La interfaz debe permitir a los visitantes:
+La interfaz permite a los visitantes:
 
 - Para quienes desean acceder al edificio, deben poder registrar:
 
@@ -49,7 +49,7 @@ La interfaz debe permitir a los visitantes:
 
 ---
 
-- Para los administradores del edificio de coworking (esta parte no debe ser visible como primera vista para los visitantes):
+- Para los administradores del edificio de coworking (esta parte no es visible como primera vista para los visitantes):
 
   - Mostrar una vista privada con contraseña de acceso
   - Mostrar la lista de visitantes completa ordenados por fecha de registro
