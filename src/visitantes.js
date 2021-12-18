@@ -36,7 +36,7 @@ const datosRegistro = () => {
 
                 cleanPeople();
                 for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
-                    .persona) {
+                        .persona) {
                     console.log(personas);
 
                     let imprimirPersonas = document.getElementById("people");
@@ -73,7 +73,7 @@ let cleanPeople = () => {
 let keepForm = () => {
     let botonSiguiente = document.getElementById("botonSiguiente");
 
-    botonSiguiente.addEventListener("click", function () {
+    botonSiguiente.addEventListener("click", function() {
         /*Guardar datos inputs*/
 
         let formObject = {
@@ -83,10 +83,11 @@ let keepForm = () => {
             persona: document.getElementById("persona").value,
             asunto: document.getElementById("asunto").value,
             cita: document.getElementById("si-no").value,
+            foto: document.getElementById("snap").value,
         };
 
         console.log(formObject);
-        window.location.href = "./camara.html"
+        //window.location.href = "./camara.html"
     });
 };
 
