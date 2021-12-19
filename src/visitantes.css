@@ -120,3 +120,22 @@ contact {
 
 
 /*----------------- Termina Footer ---------------*/
+
+camara {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    border: solid black 1px;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.canvas-container {
+    border: solid black 1px;
+    margin: 0.5rem;
+    padding: 1rem;
+}

@@ -74,20 +74,49 @@ let keepForm = () => {
     let botonSiguiente = document.getElementById("botonSiguiente");
 
     botonSiguiente.addEventListener("click", function() {
-        /*Guardar datos inputs*/
 
+
+        document.getElementById("registro").hidden = true;
+        document.getElementById("camara").hidden = false;
+
+        /*Guardar datos inputs*/
         let formObject = {
             nombre: document.getElementById("nombre").value,
             contacto: document.getElementById("contact").value,
             empresa: document.getElementById("companias").value,
             persona: document.getElementById("persona").value,
             asunto: document.getElementById("asunto").value,
-            cita: document.getElementById("si-no").value,
-            foto: document.getElementById("snap").value,
+            cita: document.getElementById("si-no").value
         };
 
         console.log(formObject);
-        //window.location.href = "./camara.html"
+
+        //        localStorage.setItem('objectToPass', formObject);
+
+
+        //console.log(localStorage.setItem('objectToPass', formObject));
+
+
+
+
+
+        let canvas = document.getElementById('canvas')
+        let context = canvas.getContext('2d')
+        let video = document.getElementById('video')
+
+        //nav = navigator.mediaDevices
+        //console.log(nav)
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+                video.srcObject = stream;
+                video.play();
+            })
+        }
+
+        document.getElementById('snap').addEventListener('click', () => {
+            context.drawImage(video, 0, 0, 320, 240)
+        })
+
     });
 };
 
