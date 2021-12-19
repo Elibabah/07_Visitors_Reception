@@ -109,7 +109,9 @@ let keepForm = () => {
 
         // Botón tomar Foto
         document.getElementById('snap').addEventListener('click', () => {
-            formObject.foto = "context.drawImage(video, 0, 0, 320, 240)"
+            formObject.foto = "aquí el valor de la foto"
+
+            context.drawImage(video, 0, 0, 320, 240)
         })
 
 
