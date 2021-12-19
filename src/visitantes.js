@@ -73,7 +73,7 @@ let cleanPeople = () => {
 let keepForm = () => {
     let botonSiguiente = document.getElementById("botonSiguiente");
 
-    botonSiguiente.addEventListener("click", function() {
+    botonSiguiente.addEventListener("click", () => {
 
 
         document.getElementById("registro").hidden = true;
@@ -111,6 +111,18 @@ let keepForm = () => {
         document.getElementById('snap').addEventListener('click', () => {
             formObject.foto = "context.drawImage(video, 0, 0, 320, 240)"
         })
+
+
+
+        //Botón enviar objeto a firestore
+        let enviar = () => {
+            let botonEnviar = document.getElementById("enviar")
+
+            botonEnviar.addEventListener("click", () => {
+                alert("Enviar datos")
+            })
+            enviar()
+        }
 
     });
 };
