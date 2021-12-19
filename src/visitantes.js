@@ -109,7 +109,7 @@ let keepForm = () => {
 
         // Botón tomar Foto
         document.getElementById('snap').addEventListener('click', () => {
-            formObject.foto = "aquí va el valor de la foto"
+
 
 
             // reader.readAsDataURL(file);
@@ -126,7 +126,7 @@ let keepForm = () => {
 
             let base64 = getBase64Image(document.getElementById("video"));
             console.log(base64);
-
+            formObject.foto = base64
 
             context.drawImage(video, 0, 0, 320, 240)
         })
