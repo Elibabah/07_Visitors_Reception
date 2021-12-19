@@ -36,7 +36,7 @@ const datosRegistro = () => {
 
                 cleanPeople();
                 for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
-                    .persona) {
+                        .persona) {
                     console.log(personas);
 
                     let imprimirPersonas = document.getElementById("people");
@@ -73,20 +73,45 @@ let cleanPeople = () => {
 let keepForm = () => {
     let botonSiguiente = document.getElementById("botonSiguiente");
 
-    botonSiguiente.addEventListener("click", function () {
-        /*Guardar datos inputs*/
+    botonSiguiente.addEventListener("click", function() {
 
+
+        document.getElementById("registro").hidden = true;
+        document.getElementById("camara").hidden = false;
+
+        /*Guardar datos inputs*/
         let formObject = {
             nombre: document.getElementById("nombre").value,
             contacto: document.getElementById("contact").value,
             empresa: document.getElementById("companias").value,
             persona: document.getElementById("persona").value,
             asunto: document.getElementById("asunto").value,
-            cita: document.getElementById("si-no").value,
+            cita: document.getElementById("si-no").value
         };
 
         console.log(formObject);
-        window.location.href = "./camara.html"
+
+        //localStorage.setItem('objectToPass', formObject);
+        //console.log(localStorage.setItem('objectToPass', formObject));
+
+        let canvas = document.getElementById('canvas')
+        let context = canvas.getContext('2d')
+        let video = document.getElementById('video')
+
+        //nav = navigator.mediaDevices
+        //console.log(nav)
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+                video.srcObject = stream;
+                video.play();
+            })
+        }
+
+        // Botón tomar Foto
+        document.getElementById('snap').addEventListener('click', () => {
+            formObject.foto = "context.drawImage(video, 0, 0, 320, 240)"
+        })
+
     });
 };
 

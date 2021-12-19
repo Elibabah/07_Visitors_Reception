@@ -9,6 +9,7 @@
     <title>Registro</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="visitantes.js" defer></script>
     <!-- Fontawesome  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap -->
@@ -18,7 +19,7 @@
 
 <body>
 
-    <registro>
+    <registro id="registro">
 
         <header>
             <h3>Registro</h3>
@@ -34,7 +35,7 @@
         <main>
             <div class="form">
                 <!--Empieza FORM-->
-                <form action="./camara.html">
+                <form action="">
                     <label for="exampleDataList" class="form-label" for="validationCustom01">Nombre completo</label>
                     <input type="text" placeholder="Nombre completo" class="form-control" id="nombre" required><br>
 
@@ -74,28 +75,41 @@
                     <label for="si-no" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="no" required>No</label>
                     <br>
 
-                    <button type="submit" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
+                    <button type="button" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
                     <a href="./index.html"><button type="button" class="btn btn-outline-dark" id="botonRegresar">Regresar</button></a>
                 </form>
-
                 <!--Termina FORM-->
             </div>
         </main>
         <footer>
-
-
             <one id="beto">&copyAlbertoouu <a href="https://www.linkedin.com/in/albertooouu/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/albertoouu" target="_blank" class="btn"><i class="fab fa-github"></i></a></one>
-
             <two id="elias"><a href="https://github.com/Elibabah" target="_blank" class="btn"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/elías-hernández-elibabah-5b85b5100/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a> Elibabah&copy</two>
-
-
         </footer>
-
     </registro>
 
-    <script src="visitantes.js"></script>
+
+
+
+    <!--Screen cámara-->
+    <camara id="camara" hidden>
+        <div class="video-container">
+            <video id="video" width="320" height="240" autoplay></video>
+            <!--width="640" height="480"-->
+        </div>
+
+        <button id="snap" class="btn btn-primary">Take Photo</button>
+
+        <div class="canvas-container">
+            <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+
+        <button class="btn btn-danger">Submit</button>
+    </camara>
+
+
+
 </body>
 
 </html>
