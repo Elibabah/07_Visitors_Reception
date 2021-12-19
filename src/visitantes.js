@@ -91,14 +91,8 @@ let keepForm = () => {
 
         console.log(formObject);
 
-        //        localStorage.setItem('objectToPass', formObject);
-
-
+        //localStorage.setItem('objectToPass', formObject);
         //console.log(localStorage.setItem('objectToPass', formObject));
-
-
-
-
 
         let canvas = document.getElementById('canvas')
         let context = canvas.getContext('2d')
@@ -113,8 +107,9 @@ let keepForm = () => {
             })
         }
 
+        // Botón tomar Foto
         document.getElementById('snap').addEventListener('click', () => {
-            context.drawImage(video, 0, 0, 320, 240)
+            formObject.foto = "context.drawImage(video, 0, 0, 320, 240)"
         })
 
     });
