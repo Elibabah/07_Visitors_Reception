@@ -162,7 +162,7 @@ let keepForm = () => {
             formObject.date = new Date();
             console.log(formObject);
             //Pintar en canvas
-            context.drawImage(video, 0, 0, 320, 240);
+            context.drawImage(video, 0, 0, 320, 320);
         });
 
         //Botón enviar objeto a firestore
@@ -185,30 +185,3 @@ const db = firebase.firestore();
 const saveVisitor = (obj) => {
     db.collection("visitors").doc().set(obj);
 };
-/*function validacion() {
-    if (nombre == null || valor.length == 0 || /^\s+$/.test(valor)) {
-        // Si no se cumple la condicion...
-        alert("Introduce tu nombre");
-        return false;
-    } else if (contacto == null || valor.length == 0 || /^\s+$/.test(valor)) {
-        // Si no se cumple la condicion...
-        alert("Introduce un medio de contacto");
-        return false;
-    } else if (empresa == null || empresa == 0) {
-        // Si no se cumple la condicion...
-        alert("Introduce la empresa a la que diriges");
-        return false;
-    } else if (persona == null || persona == 0) {
-        // Si no se cumple la condicion...
-        alert("Introduce el nombre de la persona a la que visitas");
-        return false;
-    } else if (asunto == null || asunto == 0) {
-        alert("Introduce el motivo de tu visita");
-        return false;
-    } else if (cita == null || cita == 0) {
-        alert("Marca si cuentas con cita o debes ser notificado");
-        return false;
-    }
-
-    return true;
-}*/
