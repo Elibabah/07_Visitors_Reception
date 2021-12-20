@@ -1,11 +1,17 @@
-console.log("hola")
-const db = firebase.firestore()
+let dataAdmin = [];
 
-const getData = () => db.collection('visitors').get()
+console.log("hola");
+const db = firebase.firestore();
 
-window.addEventListener('DOMContentLoaded', async (e) => {
-  const querySnapshot = await getData()
-  querySnapshot.forEach(doc => {
-    console.log(doc.data().nombre)
-  })
-})
+const getData = () => db.collection("visitors").get();
+
+window.addEventListener("DOMContentLoaded", async(e) => {
+    const querySnapshot = await getData();
+    querySnapshot.forEach((doc) => {
+        console.log(doc.data().nombre);
+        dataAdmin.push(doc.data());
+        console.log(dataAdmin);
+    });
+});
+
+console.log(dataAdmin);
