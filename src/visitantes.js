@@ -36,7 +36,7 @@ const datosRegistro = () => {
 
                 cleanPeople();
                 for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
-                        .persona) {
+                    .persona) {
                     console.log(personas);
 
                     let imprimirPersonas = document.getElementById("people");
@@ -71,39 +71,89 @@ let cleanPeople = () => {
 /*---------- Función botón guardar datos --------------*/
 
 let keepForm = () => {
-    if ("validación form aquí") {
-        let botonSiguiente = document.getElementById("botonSiguiente");
+    let botonSiguiente = document.getElementById("botonSiguiente");
 
-        botonSiguiente.addEventListener("click", () => {
-            document.getElementById("registro").hidden = true;
-            document.getElementById("camara").hidden = false;
+    botonSiguiente.addEventListener("click", () => {
+        /*-----------------Validación form---------------*/
 
-            /*Guardar datos inputs*/
-            let formObject = {
-                nombre: document.getElementById("nombre").value,
-                contacto: document.getElementById("contact").value,
-                empresa: document.getElementById("companias").value,
-                persona: document.getElementById("persona").value,
-                asunto: document.getElementById("asunto").value,
-                cita: document.getElementById("cita").value,
-            };
+        let nombre = document.getElementById("nombre").value;
+        let contacto = document.getElementById("contact").value;
+        let empresa = document.getElementById("companias").value;
+        let persona = document.getElementById("persona").value;
+        let asunto = document.getElementById("asunto").value;
+        let cita = document.getElementById("cita").value;
 
-            console.log(formObject);
+        if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
+            // Si no se cumple la condicion...
+            alert("Introduce tu nombre");
+            return false;
+        } else if (
+            contacto == null ||
+            contacto.length == 0 ||
+            /^\s+$/.test(contacto)
+        ) {
+            // Si no se cumple la condicion...
+            alert("Introduce un medio de contacto");
+            return false;
+        } else if (empresa == null || empresa == 0) {
+            // Si no se cumple la condicion...
+            alert("Introduce la empresa a la que diriges");
+            return false;
+        } else if (persona == null || persona == 0) {
+            // Si no se cumple la condicion...
+            alert("Introduce el nombre de la persona a la que visitas");
+            return false;
+        } else if (asunto == null || asunto == 0) {
+            alert("Introduce el motivo de tu visita");
+            return false;
+        } else if (cita == null || cita == 0) {
+            alert("Marca si cuentas con cita o debes ser notificado");
+            return false;
+        }
 
-            //localStorage.setItem('objectToPass', formObject);
-            //console.log(localStorage.setItem('objectToPass', formObject));
+        document.getElementById("registro").hidden = true;
+        document.getElementById("camara").hidden = false;
 
-            let canvas = document.getElementById("canvas");
-            let context = canvas.getContext("2d");
-            let video = document.getElementById("video");
+        /*Guardar datos inputs*/
+        let formObject = {
+            nombre: document.getElementById("nombre").value,
+            contacto: document.getElementById("contact").value,
+            empresa: document.getElementById("companias").value,
+            persona: document.getElementById("persona").value,
+            asunto: document.getElementById("asunto").value,
+            cita: document.getElementById("cita").value,
+        };
 
-            //nav = navigator.mediaDevices
-            //console.log(nav)
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-                    video.srcObject = stream;
-                    video.play();
-                });
+        console.log(formObject);
+
+        //localStorage.setItem('objectToPass', formObject);
+        //console.log(localStorage.setItem('objectToPass', formObject));
+
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+        let video = document.getElementById("video");
+
+        //nav = navigator.mediaDevices
+        //console.log(nav)
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+
+        // Botón tomar Foto
+        document.getElementById("snap").addEventListener("click", () => {
+            // reader.readAsDataURL(file);
+
+            function getBase64Image(video) {
+                var canvas = document.createElement("canvas");
+                canvas.width = video.width;
+                canvas.height = video.height;
+                let context = canvas.getContext("2d");
+                context.drawImage(video, 0, 0);
+                let dataURL = canvas.toDataURL();
+                return dataURL;
             }
 
             // Botón tomar Foto
@@ -123,7 +173,8 @@ let keepForm = () => {
                 let base64 = getBase64Image(document.getElementById("video"));
                 console.log(base64);
                 formObject.foto = base64;
-
+                formObject.date = new Date()
+                console.log(formObject)
                 //Pintar en canvas
                 context.drawImage(video, 0, 0, 320, 240);
             });
@@ -131,11 +182,46 @@ let keepForm = () => {
             //Botón enviar objeto a firestore
             let botonEnviar = document.getElementById("enviar");
 
-            botonEnviar.addEventListener("click", () => {
+            botonEnviar.addEventListener("click", async (e) => {
+                e.preventDefault()
+                await saveVisitor(formObject)
                 alert("Enviar datos");
             });
         });
-    } else alert("Debes llenar todos los campos");
+    });
+    return true;
 };
 
 keepForm();
+
+const db = firebase.firestore()
+const saveVisitor = (obj) => {
+    db.collection('visitors').doc().set(obj)
+}
+/*function validacion() {
+    if (nombre == null || valor.length == 0 || /^\s+$/.test(valor)) {
+        // Si no se cumple la condicion...
+        alert("Introduce tu nombre");
+        return false;
+    } else if (contacto == null || valor.length == 0 || /^\s+$/.test(valor)) {
+        // Si no se cumple la condicion...
+        alert("Introduce un medio de contacto");
+        return false;
+    } else if (empresa == null || empresa == 0) {
+        // Si no se cumple la condicion...
+        alert("Introduce la empresa a la que diriges");
+        return false;
+    } else if (persona == null || persona == 0) {
+        // Si no se cumple la condicion...
+        alert("Introduce el nombre de la persona a la que visitas");
+        return false;
+    } else if (asunto == null || asunto == 0) {
+        alert("Introduce el motivo de tu visita");
+        return false;
+    } else if (cita == null || cita == 0) {
+        alert("Marca si cuentas con cita o debes ser notificado");
+        return false;
+    }
+
+    return true;
+}*/
