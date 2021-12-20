@@ -86,7 +86,7 @@ let keepForm = () => {
             empresa: document.getElementById("companias").value,
             persona: document.getElementById("persona").value,
             asunto: document.getElementById("asunto").value,
-            cita: document.getElementById("si-no").value
+            cita: document.getElementById("cita").value
         };
 
         console.log(formObject);
