@@ -71,14 +71,7 @@ let cleanPeople = () => {
 /*---------- Función botón guardar datos --------------*/
 
 let keepForm = () => {
-    if (
-        (document.getElementById("nombre") === nombre,
-            document.getElementById("contact") === contact,
-            document.getElementById("companias") === companias,
-            document.getElementById("persona") === persona,
-            document.getElementById("asunto") === asunto,
-            document.getElementById("cita") === cita)
-    ) {
+    if ("validación form aquí") {
         let botonSiguiente = document.getElementById("botonSiguiente");
 
         botonSiguiente.addEventListener("click", () => {
@@ -121,9 +114,9 @@ let keepForm = () => {
                     var canvas = document.createElement("canvas");
                     canvas.width = video.width;
                     canvas.height = video.height;
-                    var context = canvas.getContext("2d");
+                    let context = canvas.getContext("2d");
                     context.drawImage(video, 0, 0);
-                    var dataURL = canvas.toDataURL();
+                    let dataURL = canvas.toDataURL();
                     return dataURL;
                 }
 
@@ -136,14 +129,11 @@ let keepForm = () => {
             });
 
             //Botón enviar objeto a firestore
-            let enviar = () => {
-                let botonEnviar = document.getElementById("enviar");
+            let botonEnviar = document.getElementById("enviar");
 
-                botonEnviar.addEventListener("click", () => {
-                    alert("Enviar datos");
-                });
-                enviar();
-            };
+            botonEnviar.addEventListener("click", () => {
+                alert("Enviar datos");
+            });
         });
     } else alert("Debes llenar todos los campos");
 };
