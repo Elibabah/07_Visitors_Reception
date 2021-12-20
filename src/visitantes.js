@@ -36,7 +36,7 @@ const datosRegistro = () => {
 
                 cleanPeople();
                 for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
-                        .persona) {
+                    .persona) {
                     console.log(personas);
 
                     let imprimirPersonas = document.getElementById("people");
@@ -156,19 +156,37 @@ let keepForm = () => {
                 return dataURL;
             }
 
-            let base64 = getBase64Image(document.getElementById("video"));
-            console.log(base64);
-            formObject.foto = base64;
+            // Botón tomar Foto
+            document.getElementById("snap").addEventListener("click", () => {
+                // reader.readAsDataURL(file);
 
-            //Pintar en canvas
-            context.drawImage(video, 0, 0, 320, 240);
-        });
+                function getBase64Image(video) {
+                    var canvas = document.createElement("canvas");
+                    canvas.width = video.width;
+                    canvas.height = video.height;
+                    let context = canvas.getContext("2d");
+                    context.drawImage(video, 0, 0);
+                    let dataURL = canvas.toDataURL();
+                    return dataURL;
+                }
 
-        //Botón enviar objeto a firestore
-        let botonEnviar = document.getElementById("enviar");
+                let base64 = getBase64Image(document.getElementById("video"));
+                console.log(base64);
+                formObject.foto = base64;
+                formObject.date = new Date()
+                console.log(formObject)
+                //Pintar en canvas
+                context.drawImage(video, 0, 0, 320, 240);
+            });
 
-        botonEnviar.addEventListener("click", () => {
-            alert("Enviar datos");
+            //Botón enviar objeto a firestore
+            let botonEnviar = document.getElementById("enviar");
+
+            botonEnviar.addEventListener("click", async (e) => {
+                e.preventDefault()
+                await saveVisitor(formObject)
+                alert("Enviar datos");
+            });
         });
     });
     return true;
@@ -176,6 +194,10 @@ let keepForm = () => {
 
 keepForm();
 
+const db = firebase.firestore()
+const saveVisitor = (obj) => {
+    db.collection('visitors').doc().set(obj)
+}
 /*function validacion() {
     if (nombre == null || valor.length == 0 || /^\s+$/.test(valor)) {
         // Si no se cumple la condicion...
