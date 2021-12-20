@@ -171,8 +171,16 @@ let keepForm = () => {
         botonEnviar.addEventListener("click", async(e) => {
             e.preventDefault();
             await saveVisitor(formObject);
-            alert("Envío exitoso. Bienvenid@");
 
+            //window.location.href = "./index.html";
+            //volver();
+        });
+
+        //Boton volver al inicio
+        let volverHome = document.getElementById("volverHome");
+
+        volverHome.addEventListener("click", () => {
+            alert("Envío exitoso. Bienvenid@");
             window.location.href = "./index.html";
         });
     });
