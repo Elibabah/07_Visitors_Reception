@@ -50,11 +50,12 @@ aside {
     width: 60%;
     display: block;
     margin: auto;
+    margin-top: 3%;
 }
 
 .bienvenida {
-    margin-top: 0%;
-    margin-bottom: 21%;
+    margin-top: 6%;
+    margin-bottom: 16%;
 }
 
 #botonRegistro {
@@ -64,7 +65,7 @@ aside {
     padding-left: 11%;
     font-size: 155%;
     border-radius: 4%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-bottom: 3%;
     background-color: maroon;
 }
@@ -74,7 +75,7 @@ aside {
 }
 
 #botonAdmin {
-    margin-top: 3%;
+    margin-top: 4%;
 }
 
 contact {

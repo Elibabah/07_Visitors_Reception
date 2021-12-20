@@ -71,48 +71,71 @@ let cleanPeople = () => {
 /*---------- Función botón guardar datos --------------*/
 
 let keepForm = () => {
-    let botonSiguiente = document.getElementById("botonSiguiente");
+    if ("validación form aquí") {
+        let botonSiguiente = document.getElementById("botonSiguiente");
 
-    botonSiguiente.addEventListener("click", function() {
+        botonSiguiente.addEventListener("click", () => {
+            document.getElementById("registro").hidden = true;
+            document.getElementById("camara").hidden = false;
 
+            /*Guardar datos inputs*/
+            let formObject = {
+                nombre: document.getElementById("nombre").value,
+                contacto: document.getElementById("contact").value,
+                empresa: document.getElementById("companias").value,
+                persona: document.getElementById("persona").value,
+                asunto: document.getElementById("asunto").value,
+                cita: document.getElementById("cita").value,
+            };
 
-        document.getElementById("registro").hidden = true;
-        document.getElementById("camara").hidden = false;
+            console.log(formObject);
 
-        /*Guardar datos inputs*/
-        let formObject = {
-            nombre: document.getElementById("nombre").value,
-            contacto: document.getElementById("contact").value,
-            empresa: document.getElementById("companias").value,
-            persona: document.getElementById("persona").value,
-            asunto: document.getElementById("asunto").value,
-            cita: document.getElementById("si-no").value
-        };
+            //localStorage.setItem('objectToPass', formObject);
+            //console.log(localStorage.setItem('objectToPass', formObject));
 
-        console.log(formObject);
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+            let video = document.getElementById("video");
 
-        //localStorage.setItem('objectToPass', formObject);
-        //console.log(localStorage.setItem('objectToPass', formObject));
+            //nav = navigator.mediaDevices
+            //console.log(nav)
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+                    video.srcObject = stream;
+                    video.play();
+                });
+            }
 
-        let canvas = document.getElementById('canvas')
-        let context = canvas.getContext('2d')
-        let video = document.getElementById('video')
+            // Botón tomar Foto
+            document.getElementById("snap").addEventListener("click", () => {
+                // reader.readAsDataURL(file);
 
-        //nav = navigator.mediaDevices
-        //console.log(nav)
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-                video.srcObject = stream;
-                video.play();
-            })
-        }
+                function getBase64Image(video) {
+                    var canvas = document.createElement("canvas");
+                    canvas.width = video.width;
+                    canvas.height = video.height;
+                    let context = canvas.getContext("2d");
+                    context.drawImage(video, 0, 0);
+                    let dataURL = canvas.toDataURL();
+                    return dataURL;
+                }
 
-        // Botón tomar Foto
-        document.getElementById('snap').addEventListener('click', () => {
-            formObject.foto = "context.drawImage(video, 0, 0, 320, 240)"
-        })
+                let base64 = getBase64Image(document.getElementById("video"));
+                console.log(base64);
+                formObject.foto = base64;
 
-    });
+                //Pintar en canvas
+                context.drawImage(video, 0, 0, 320, 240);
+            });
+
+            //Botón enviar objeto a firestore
+            let botonEnviar = document.getElementById("enviar");
+
+            botonEnviar.addEventListener("click", () => {
+                alert("Enviar datos");
+            });
+        });
+    } else alert("Debes llenar todos los campos");
 };
 
 keepForm();

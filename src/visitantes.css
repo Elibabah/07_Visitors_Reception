@@ -2,25 +2,26 @@ registro {
     display: grid;
     width: auto;
     height: 100vh;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 0.5fr 4fr 0.5fr;
-    grid-template-areas: "header header header" "aside main main" "footer footer footer";
+    grid-template-columns: 0.5fr 4fr 0.5fr;
+    grid-template-rows: 4fr 0.5fr;
+    grid-template-areas: " main main main" "footer footer footer";
     padding: 0%;
     column-gap: 0%;
     row-gap: 0%;
 }
 
-header {
-    grid-area: header;
-    text-align: center;
-    margin-top: 1.5%;
-}
 
-aside {
-    grid-area: aside;
+/*aside1 {
+    grid-area: aside1;
     text-align: center;
     color: darkgray;
 }
+
+aside2 {
+    grid-area: aside2;
+    text-align: center;
+    color: darkgray;
+}*/
 
 main {
     grid-area: main;
@@ -28,8 +29,8 @@ main {
     background-color: maroon;
 }
 
-.logo {
-    width: 60%;
+#logo {
+    width: 90%;
     margin-top: 5%;
     display: block;
     margin: auto;
@@ -42,7 +43,7 @@ main {
 .form {
     border-style: solid;
     height: 95%;
-    width: 60%;
+    width: 80%;
     padding: 5%;
     background-color: #fff;
     display: block;

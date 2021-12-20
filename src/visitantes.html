@@ -21,15 +21,13 @@
 
     <registro id="registro">
 
-        <header>
-            <h3>Registro</h3>
-        </header>
-        <aside>
-            <image><img src="../assets/UI/logo.png" alt="logo-registro" class="logo"></image>
-        </aside>
+
+        <aside1>
+            <!--      <image><img src="../assets/UI/logo.png" alt="logo-registro" id="logo"></image>-->
+        </aside1>
 
 
-
+        <aside2></aside2>
 
 
         <main>
@@ -69,11 +67,24 @@
                     </select><br>
 
 
-                    <label for="exampleDataList" class="form-label">Cuenta con cita</label><br>
 
-                    <label for="si-no" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="si" required>Sí</label>
-                    <label for="si-no" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="no" required>No</label>
-                    <br>
+
+                    <label for="exampleDataList" class="form-label">Cuenta con cita</label>
+                    <select class="form-select" aria-label="Default select example" id="cita" required>
+                        <option selected></option>
+                        <option value="Sí">Sí</option>
+                        <option value="No">No</option>
+                    </select><br>
+
+
+
+
+                    <!--                    <label for="exampleDataList" class="form-label">Cuenta con cita</label><br>
+
+                    <label for="si" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="si" required>Sí</label>
+                    <label for="no" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="no" required>No</label>
+                    <br> class="form-check-input"
+-->
 
                     <button type="button" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
                     <a href="./index.html"><button type="button" class="btn btn-outline-dark" id="botonRegresar">Regresar</button></a>
@@ -99,16 +110,14 @@
             <!--width="640" height="480"-->
         </div>
 
-        <button id="snap" class="btn btn-primary">Take Photo</button>
+        <button id="snap" class="btn btn-primary">Tomar foto</button>
 
         <div class="canvas-container">
             <canvas id="canvas" width="320" height="240"></canvas>
         </div>
 
-        <button class="btn btn-danger">Submit</button>
+        <button id="enviar" class="btn btn-danger" type="submit">Enviar</button>
     </camara>
-
-
 
 </body>
 
