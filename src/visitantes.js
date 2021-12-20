@@ -116,8 +116,6 @@ let keepForm = () => {
             // Botón tomar Foto
             document.getElementById("snap").addEventListener("click", () => {
                 // reader.readAsDataURL(file);
-                //Pintar en canvas en html
-                context.drawImage(video, 0, 0, 320, 240);
 
                 function getBase64Image(video) {
                     var canvas = document.createElement("canvas");
@@ -132,6 +130,9 @@ let keepForm = () => {
                 let base64 = getBase64Image(document.getElementById("video"));
                 console.log(base64);
                 formObject.foto = base64;
+
+                //Pintar en canvas
+                context.drawImage(video, 0, 0, 320, 240);
             });
 
             //Botón enviar objeto a firestore
