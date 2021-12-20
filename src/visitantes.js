@@ -36,7 +36,7 @@ const datosRegistro = () => {
 
                 cleanPeople();
                 for (const personas of empresasArray[0]["coworking_Ajusco"][porEmpresa]
-                        .persona) {
+                    .persona) {
                     console.log(personas);
 
                     let imprimirPersonas = document.getElementById("people");
@@ -123,7 +123,8 @@ let keepForm = () => {
                 let base64 = getBase64Image(document.getElementById("video"));
                 console.log(base64);
                 formObject.foto = base64;
-
+                formObject.date = new Date()
+                console.log(formObject)
                 //Pintar en canvas
                 context.drawImage(video, 0, 0, 320, 240);
             });
@@ -131,7 +132,9 @@ let keepForm = () => {
             //Botón enviar objeto a firestore
             let botonEnviar = document.getElementById("enviar");
 
-            botonEnviar.addEventListener("click", () => {
+            botonEnviar.addEventListener("click", async (e) => {
+                e.preventDefault()
+                await saveVisitor(formObject)
                 alert("Enviar datos");
             });
         });
@@ -139,3 +142,8 @@ let keepForm = () => {
 };
 
 keepForm();
+
+const db = firebase.firestore()
+const saveVisitor = (obj) => {
+    db.collection('visitors').doc().set(obj)
+}

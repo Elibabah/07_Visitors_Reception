@@ -1,124 +1,208 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--Ícono-->
-    <link rel="icon" href="../assets/UI/logo.png">
+    <link rel="icon" href="../assets/UI/logo.png" />
     <title>Registro</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="visitantes.js" defer></script>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <!-- Fontawesome  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="visitantes.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="visitantes.css" />
+  </head>
 
-<body>
-
+  <body>
     <registro id="registro">
+      <aside1>
+        <!--      <image><img src="../assets/UI/logo.png" alt="logo-registro" id="logo"></image>-->
+      </aside1>
 
+      <aside2></aside2>
 
-        <aside1>
-            <!--      <image><img src="../assets/UI/logo.png" alt="logo-registro" id="logo"></image>-->
-        </aside1>
+      <main>
+        <div class="form">
+          <!--Empieza FORM-->
+          <form action="" id="visitors-form">
+            <label
+              for="exampleDataList"
+              class="form-label"
+              for="validationCustom01"
+              >Nombre completo</label
+            >
+            <input
+              type="text"
+              placeholder="Nombre completo"
+              class="form-control"
+              id="nombre"
+              required
+            /><br />
 
+            <label for="exampleDataList" class="form-label"
+              >Email o Teléfono</label
+            >
+            <input
+              type="email, number"
+              placeholder="Email / Teléfono"
+              class="form-control"
+              id="contact"
+              required
+            /><br />
 
-        <aside2></aside2>
+            <label for="exampleDataList" class="form-label"
+              >Compañía a la cual visita</label
+            >
+            <input
+              class="form-control"
+              list="company"
+              id="companias"
+              placeholder="Escribir para buscar..."
+              required
+            /><br />
+            <datalist id="company"> </datalist>
 
+            <label for="exampleDataList" class="form-label"
+              >A quién visita</label
+            >
+            <input
+              class="form-control"
+              list="people"
+              id="persona"
+              placeholder="Escribir para buscar..."
+              required
+            /><br />
+            <datalist id="people"> </datalist>
 
-        <main>
-            <div class="form">
-                <!--Empieza FORM-->
-                <form action="">
-                    <label for="exampleDataList" class="form-label" for="validationCustom01">Nombre completo</label>
-                    <input type="text" placeholder="Nombre completo" class="form-control" id="nombre" required><br>
+            <label for="exampleDataList" class="form-label">Asunto</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="asunto"
+              required
+            >
+              <option selected></option>
+              <option value="Empleo">Empleo</option>
+              <option value="Limpieza">Limpieza</option>
+              <option value="Negocios">Negocios</option>
+              <option value="Personal">Personal</option>
+              <option value="Proveedor">Proveedor</option>
+              <option value="Trabajador">Trabajador</option></select
+            ><br />
 
-                    <label for="exampleDataList" class="form-label">Email o Teléfono</label>
-                    <input type="email, number" placeholder="Email / Teléfono" class="form-control" id="contact" required><br>
+            <label for="exampleDataList" class="form-label"
+              >Cuenta con cita</label
+            >
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="cita"
+              required
+            >
+              <option selected></option>
+              <option value="Sí">Sí</option>
+              <option value="No">No</option></select
+            ><br />
 
-
-                    <label for="exampleDataList" class="form-label">Compañía a la cual visita</label>
-                    <input class="form-control" list="company" id="companias" placeholder="Escribir para buscar..." required><br>
-                    <datalist id="company">
-                    </datalist>
-
-
-                    <label for="exampleDataList" class="form-label">A quién visita</label>
-                    <input class="form-control" list="people" id="persona" placeholder="Escribir para buscar..." required><br>
-                    <datalist id="people">
-                    </datalist>
-
-
-
-
-                    <label for="exampleDataList" class="form-label">Asunto</label>
-                    <select class="form-select" aria-label="Default select example" id="asunto" required>
-                        <option selected></option>
-                        <option value="Empleo">Empleo</option>
-                        <option value="Limpieza">Limpieza</option>
-                        <option value="Negocios">Negocios</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Proveedor">Proveedor</option>
-                        <option value="Trabajador">Trabajador</option>
-                    </select><br>
-
-
-
-
-                    <label for="exampleDataList" class="form-label">Cuenta con cita</label>
-                    <select class="form-select" aria-label="Default select example" id="cita" required>
-                        <option selected></option>
-                        <option value="Sí">Sí</option>
-                        <option value="No">No</option>
-                    </select><br>
-
-
-
-
-                    <!--                    <label for="exampleDataList" class="form-label">Cuenta con cita</label><br>
+            <!--                    <label for="exampleDataList" class="form-label">Cuenta con cita</label><br>
 
                     <label for="si" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="si" required>Sí</label>
                     <label for="no" class="form-check-label-1"><input  id="si-no" type="radio" name="si-no" value="no" required>No</label>
                     <br> class="form-check-input"
 -->
 
-                    <button type="button" class="btn btn-danger" id="botonSiguiente">Siguiente</button><br>
-                    <a href="./index.html"><button type="button" class="btn btn-outline-dark" id="botonRegresar">Regresar</button></a>
-                </form>
-                <!--Termina FORM-->
-            </div>
-        </main>
-        <footer>
-            <one id="beto">&copyAlbertoouu <a href="https://www.linkedin.com/in/albertooouu/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/albertoouu" target="_blank" class="btn"><i class="fab fa-github"></i></a></one>
-            <two id="elias"><a href="https://github.com/Elibabah" target="_blank" class="btn"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/elías-hernández-elibabah-5b85b5100/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a> Elibabah&copy</two>
-        </footer>
+            <button type="button" class="btn btn-danger" id="botonSiguiente">
+              Siguiente</button
+            ><br />
+            <a href="./index.html"
+              ><button
+                type="button"
+                class="btn btn-outline-dark"
+                id="botonRegresar"
+              >
+                Regresar
+              </button></a
+            >
+          </form>
+          <!--Termina FORM-->
+        </div>
+      </main>
+      <footer>
+        <one id="beto"
+          >&copyAlbertoouu
+          <a
+            href="https://www.linkedin.com/in/albertooouu/"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/albertoouu" target="_blank" class="btn"
+            ><i class="fab fa-github"></i></a
+        ></one>
+        <two id="elias"
+          ><a href="https://github.com/Elibabah" target="_blank" class="btn"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/elías-hernández-elibabah-5b85b5100/"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          Elibabah&copy</two
+        >
+      </footer>
     </registro>
-
-
-
 
     <!--Screen cámara-->
     <camara id="camara" hidden>
-        <div class="video-container">
-            <video id="video" width="320" height="240" autoplay></video>
-            <!--width="640" height="480"-->
-        </div>
+      <div class="video-container">
+        <video id="video" width="320" height="240" autoplay></video>
+        <!--width="640" height="480"-->
+      </div>
 
-        <button id="snap" class="btn btn-primary">Tomar foto</button>
+      <button id="snap" class="btn btn-primary">Tomar foto</button>
 
-        <div class="canvas-container">
-            <canvas id="canvas" width="320" height="240"></canvas>
-        </div>
+      <div class="canvas-container">
+        <canvas id="canvas" width="320" height="240"></canvas>
+      </div>
 
-        <button id="enviar" class="btn btn-danger" type="submit">Enviar</button>
+      <button id="enviar" class="btn btn-danger" type="submit">Enviar</button>
     </camara>
 
-</body>
+    <!-- FIREBASE -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDUalN6rqWDDMQ1Y0WoGgV7QIqw5m8T-08",
+        authDomain: "visitor-reception-a8907.firebaseapp.com",
+        projectId: "visitor-reception-a8907",
+        storageBucket: "visitor-reception-a8907.appspot.com",
+        messagingSenderId: "345085369922",
+        appId: "1:345085369922:web:8e278452017f18737fd7db",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="visitantes.js"></script>
+  </body>
 </html>
