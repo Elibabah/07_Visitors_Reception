@@ -142,6 +142,7 @@ let keepForm = () => {
             });
         }
 
+
         // Botón tomar Foto
         document.getElementById("snap").addEventListener("click", () => {
             // reader.readAsDataURL(file);
@@ -156,38 +157,24 @@ let keepForm = () => {
                 return dataURL;
             }
 
-            // Botón tomar Foto
-            document.getElementById("snap").addEventListener("click", () => {
-                // reader.readAsDataURL(file);
-
-                function getBase64Image(video) {
-                    var canvas = document.createElement("canvas");
-                    canvas.width = video.width;
-                    canvas.height = video.height;
-                    let context = canvas.getContext("2d");
-                    context.drawImage(video, 0, 0);
-                    let dataURL = canvas.toDataURL();
-                    return dataURL;
-                }
-
-                let base64 = getBase64Image(document.getElementById("video"));
-                console.log(base64);
-                formObject.foto = base64;
-                formObject.date = new Date()
-                console.log(formObject)
-                //Pintar en canvas
-                context.drawImage(video, 0, 0, 320, 240);
-            });
-
-            //Botón enviar objeto a firestore
-            let botonEnviar = document.getElementById("enviar");
-
-            botonEnviar.addEventListener("click", async (e) => {
-                e.preventDefault()
-                await saveVisitor(formObject)
-                alert("Enviar datos");
-            });
+            let base64 = getBase64Image(document.getElementById("video"));
+            console.log(base64);
+            formObject.foto = base64;
+            formObject.date = new Date()
+            console.log(formObject)
+            //Pintar en canvas
+            context.drawImage(video, 0, 0, 320, 240);
         });
+
+        //Botón enviar objeto a firestore
+        let botonEnviar = document.getElementById("enviar");
+
+        botonEnviar.addEventListener("click", async (e) => {
+            e.preventDefault()
+            await saveVisitor(formObject)
+            alert("Enviar datos");
+        });
+
     });
     return true;
 };
