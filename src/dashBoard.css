@@ -182,10 +182,23 @@ main {
 
 /*----- Lista de personas en dashboard -----*/
 
+#visitantesEnLista {
+    overflow: auto;
+    white-space: nowrap;
+}
+
 #listaPersonas:hover {
     background-color: #AEC6CF;
     transform: scale(1.05);
     cursor: pointer;
+}
+
+#imagenFotoAdmin {
+    border-radius: 3%;
+}
+
+#imagenFotoAdmin:hover {
+    transform: scale(1.01);
 }
 
 @media only screen and (max-width: 860px) {
