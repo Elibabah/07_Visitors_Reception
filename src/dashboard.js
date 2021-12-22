@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async(e) => {
         document.getElementById("visitantesEnLista").innerHTML += `
             <tr id="listaPersonas">
                 <td id="persona" value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.nombre}">${lista.nombre}</td>
-                <td>${lista.empresa}</td>
+                <td value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.nombre}">${lista.empresa}</td>
             </tr>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop${lista.nombre}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -29,8 +29,10 @@ window.addEventListener("DOMContentLoaded", async(e) => {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="canvas-container">
-                            <canvas id="canvas" width="320" height="320">${lista.foto}</canvas>
-                        </div>
+                        <img id="imagenFotoAdmin" src="${lista.foto}" let="Foto visitante no registrada">
+
+                        
+                            </div>
                 <div class="modal-body">
                 <h7><b>Empresa a la que visita:</b> ${lista.empresa}</h7><br>
                 <h7><b>Persona a la que visita:</b> ${lista.persona}</h7><br>
