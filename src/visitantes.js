@@ -147,11 +147,11 @@ let keepForm = () => {
             // reader.readAsDataURL(file);
 
             function getBase64Image(video) {
-                var canvas = document.createElement("canvas");
+                let canvas = document.createElement("canvas");
                 canvas.width = video.width;
                 canvas.height = video.height;
                 let context = canvas.getContext("2d");
-                context.drawImage(video, 0, 0);
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
                 let dataURL = canvas.toDataURL();
                 return dataURL;
             }
