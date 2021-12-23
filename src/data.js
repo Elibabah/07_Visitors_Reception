@@ -14,22 +14,29 @@ let fechasGraph = [];
 const db = firebase.firestore();
 
 const getData = () => db.collection("visitors").get();
-
+const onGetData = (callback) => db.collection('visitors').onSnapshot(callback)
+const getVisit = (id) => db.collection("visitors").doc(id).get()
+const updateData = (id, updateDate) => db.collection('visitors').doc(id).update(updateDate)
 
 export async function traerDatos() {
-  const querySnapshot = await getData()
 
-  querySnapshot.forEach((doc) => {
-    dataAdmin.push(doc.data())
+  onGetData((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      let visit = doc.data()
+      visit.id = doc.id
+      //console.log(visit)
+      dataAdmin.push(visit)
+    })
+    console.log(dataAdmin)
+    sortedData = dataAdmin.slice().sort((a, b) => b.date - a.date); //ordena los visitantes del mas reciente al mas antiguo
+    console.log(sortedData)
+    SepararDatos()
+    pintarDatos()
+    manDatos()
+    renderGraph()
+    renderVisitors()
   })
-  console.log(dataAdmin)
-  sortedData = dataAdmin.slice().sort((a, b) => b.date - a.date); //ordena los visitantes del mas reciente al mas antiguo
-  console.log(sortedData)
-  SepararDatos()
-  pintarDatos()
-  manDatos()
-  renderGraph()
-  renderVisitors()
+
 }
 
 function SepararDatos() {
@@ -147,14 +154,14 @@ function renderVisitors() {
   console.log(lista.nombre);
 
   for (let lista of sortedData) {
-    console.log(lista);
+    //console.log(lista);
     document.getElementById("visitantesEnLista").innerHTML += `
             <tr id="listaPersonas">
-                <td id="persona" value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.nombre}">${lista.nombre}</td>
+                <td id="persona" value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
                 <td value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.nombre}">${lista.empresa}</td>
             </tr>
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop${lista.nombre}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -173,13 +180,25 @@ function renderVisitors() {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-primary btn-update" data-id="${lista.id}">Actualizar</button>
                 </div>
             </div>
         </div>
     </div>
 `;
   }
+  const btnsUpdate = document.querySelectorAll('.btn-update')
+  btnsUpdate.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      console.log(e.target.dataset.id)
+      console.log('clicked')
+      let doc = await getVisit(e.target.dataset.id)
+      console.log(doc.data())
+      /*await updateData(e.target.dataset.id, {
+        checkOutTime: new Date()
+      })*/
+    })
+  })
 }
 
 
