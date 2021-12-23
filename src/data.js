@@ -158,7 +158,7 @@ function renderVisitors() {
     document.getElementById("visitantesEnLista").innerHTML += `
             <tr id="listaPersonas">
                 <td id="persona" value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-                <td value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.nombre}">${lista.empresa}</td>
+                <td value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
             </tr>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
