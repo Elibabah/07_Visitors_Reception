@@ -143,7 +143,8 @@ let keepForm = () => {
         }
 
         // Botón tomar Foto
-        document.getElementById("snap").addEventListener("click", () => {
+        let tomarFoto = document.getElementById("snap")
+        tomarFoto.addEventListener("click", () => {
             // reader.readAsDataURL(file);
 
             function getBase64Image(video) {
@@ -165,12 +166,21 @@ let keepForm = () => {
             context.drawImage(video, 0, 0, 320, 320);
         });
 
-        //Botón enviar objeto a firestore
+        //----------------// Botón enviar objeto a firestore //----------------//
         let botonEnviar = document.getElementById("enviar")
         botonEnviar.disabled = false;
 
 
+        //Validación de foto para enviar a firestore
+        /* let foto = document.getElementById("canvas").value;
 
+         if (foto == "" || foto == null) {
+             alert("Por favor, captura tu foto");
+             return false;
+         } else {*/
+
+
+        //Desactivar botón después de ser ejecutado
         if (botonEnviar.addEventListener("click", async(e) => {
                 e.preventDefault();
                 await saveVisitor(formObject);
@@ -186,7 +196,8 @@ let keepForm = () => {
         } else {
             botonEnviar.disabled = false;
         }
-
+        /*   }
+        return true;*/
     });
     return true;
 };
