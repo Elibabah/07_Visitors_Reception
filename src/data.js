@@ -21,13 +21,14 @@ const updateData = (id, updateDate) => db.collection('visitors').doc(id).update(
 export async function traerDatos() {
 
   onGetData((querySnapshot) => {
+    dataAdmin = [] //.....................checar .....................
     querySnapshot.forEach((doc) => {
       let visit = doc.data()
       visit.id = doc.id
       //console.log(visit)
       dataAdmin.push(visit)
     })
-    console.log(dataAdmin)
+    //console.log(dataAdmin)
     sortedData = dataAdmin.slice().sort((a, b) => b.date - a.date); //ordena los visitantes del mas reciente al mas antiguo
     console.log(sortedData)
     SepararDatos()
@@ -75,10 +76,10 @@ function pintarDatos() {
     monthVisitors.length + weaklyVisitors.length + todayVisitors.length + " V";
   document.getElementById("visitantesTotales").innerHTML =
     sortedData.length + " V";
-  console.log('visitantes hoy ' + todayVisitors.length)
-  console.log('visitantes semana ' + weaklyVisitors.length)
-  console.log('visitantes mes ' + monthVisitors.length)
-  console.log('visitantes mas de mes ' + moreMonth.length)
+  //console.log('visitantes hoy ' + todayVisitors.length)
+  //console.log('visitantes semana ' + weaklyVisitors.length)
+  //console.log('visitantes mes ' + monthVisitors.length)
+  //console.log('visitantes mas de mes ' + moreMonth.length)
 }
 
 function manDatos() {
@@ -133,12 +134,12 @@ function manDatos() {
 
   for (let i = 0; i < fechasGraph.length; i++) {
     let partes = fechasGraph[i].split(" ");
-    console.log(partes[1], partes[2]);
+    //console.log(partes[1], partes[2]);
     fechasGraph[i] = partes[1] + partes[2];
   }
 
-  console.log(numeroFechasGraph);
-  console.log(fechasGraph);
+  //console.log(numeroFechasGraph);
+  //console.log(fechasGraph);
 }
 
 
@@ -149,43 +150,82 @@ function renderGraph() {
 }
 
 function renderVisitors() {
-  console.log(sortedData.length);
-  let lista = sortedData[0];
-  console.log(lista.nombre);
+  document.getElementById("visitantesEnLista").innerHTML = ''
+  //console.log(sortedData.length);
+  //let lista = sortedData[0];
+  //console.log(lista.nombre);
 
   for (let lista of sortedData) {
-    //console.log(lista);
+    if(lista.hasOwnProperty('checkOutTime')) {
+                //console.log(lista);
     document.getElementById("visitantesEnLista").innerHTML += `
-            <tr id="listaPersonas">
-                <td id="persona" value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-                <td value="${lista}" onclick="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
-            </tr>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">${lista.nombre}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="canvas-container">
-                        <img id="imagenFotoAdmin" src="${lista.foto}" alt="Foto visitante no registrada">
-                            </div>
-                <div class="modal-body">
-                <h7><b>Empresa a la que visita:</b> ${lista.empresa}</h7><br>
-                <h7><b>Persona a la que visita:</b> ${lista.persona}</h7><br>
-                <h7><b>Asunto:</b> ${lista.asunto}</h7><br>
-                <h7><b>Cuenta con cita:</b> ${lista.cita}</h7><br>
-                <h7><b>Medio de contacto:</b> ${lista.contacto}</h7>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-update" data-id="${lista.id}">Actualizar</button>
-                </div>
+    <tr id="listaPersonas">
+        <td id="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
+        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
+        <td>${lista.checkOutTime.toDate().toLocaleTimeString()}</td>
+    </tr>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">${lista.nombre}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="canvas-container">
+
+                    </div>
+        <div class="modal-body">
+        <h7><b>Empresa a la que visita:</b> ${lista.empresa}</h7><br>
+        <h7><b>Persona a la que visita:</b> ${lista.persona}</h7><br>
+        <h7><b>Asunto:</b> ${lista.asunto}</h7><br>
+        <h7><b>Cuenta con cita:</b> ${lista.cita}</h7><br>
+        <h7><b>Medio de contacto:</b> ${lista.contacto}</h7>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
     </div>
+</div>
+</div>
 `;
+      console.log(lista)
+    } else {
+          //console.log(lista);
+    document.getElementById("visitantesEnLista").innerHTML += `
+    <tr id="listaPersonas">
+        <td id="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
+        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
+        <td><button type="button" class="btn btn-primary btn-update btn-sm" data-id="${lista.id}">Actualizar</button></td>
+    </tr>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">${lista.nombre}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="canvas-container">
+
+                    </div>
+        <div class="modal-body">
+        <h7><b>Empresa a la que visita:</b> ${lista.empresa}</h7><br>
+        <h7><b>Persona a la que visita:</b> ${lista.persona}</h7><br>
+        <h7><b>Asunto:</b> ${lista.asunto}</h7><br>
+        <h7><b>Cuenta con cita:</b> ${lista.cita}</h7><br>
+        <h7><b>Medio de contacto:</b> ${lista.contacto}</h7>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+`;
+    }
+
+//                         <img id="imagenFotoAdmin" src="${lista.foto}" alt="Foto visitante no registrada">
   }
   const btnsUpdate = document.querySelectorAll('.btn-update')
   btnsUpdate.forEach(btn => {
@@ -194,9 +234,9 @@ function renderVisitors() {
       console.log('clicked')
       let doc = await getVisit(e.target.dataset.id)
       console.log(doc.data())
-      /*await updateData(e.target.dataset.id, {
+      await updateData(e.target.dataset.id, {
         checkOutTime: new Date()
-      })*/
+      })
     })
   })
 }
@@ -211,6 +251,114 @@ function renderVisitors() {
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
   type: "bar",
+  data: {
+    labels: [
+      "V Dec 10",
+      "S Dec 11",
+      "D Dec 12",
+      "L Dec 13",
+      "M Dec 14",
+      "X Dec 15",
+      "J Dec 16",
+      "V Dec 17",
+      "S Dec 18",
+      "D Dec 19",
+      "L Dec 20",
+      "M Dec 21",
+      "X Dec 22",
+      "J Dec 23",
+    ],
+    datasets: [{
+      label: "# of Visitors",
+      data: [12, 19, 3, 5, 2, 3, 4, 6, 8, 19, 2, 6, 8, 15],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 2,
+    },],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
+///
+///---------------------------------------------------------------------------------------------
+///
+const ctx2 = document.getElementById("myChart2").getContext("2d");
+const myChart2 = new Chart(ctx2, {
+  type: "line",
+  data: {
+    labels: [
+      "V Dec 10",
+      "S Dec 11",
+      "D Dec 12",
+      "L Dec 13",
+      "M Dec 14",
+      "X Dec 15",
+      "J Dec 16",
+      "V Dec 17",
+      "S Dec 18",
+      "D Dec 19",
+      "L Dec 20",
+      "M Dec 21",
+      "X Dec 22",
+      "J Dec 23",
+    ],
+    datasets: [{
+      label: "# of Visitors",
+      data: [12, 19, 3, 5, 2, 3, 4, 6, 8, 19, 2, 6, 8, 15],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 2,
+    },],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
+///
+///------------------------------------------------------------------------------------------------
+///
+const ctx3 = document.getElementById("myChart3").getContext("2d");
+const myChart3 = new Chart(ctx3, {
+  type: "line",
   data: {
     labels: [
       "V Dec 10",
