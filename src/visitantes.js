@@ -166,23 +166,27 @@ let keepForm = () => {
         });
 
         //Botón enviar objeto a firestore
-        let botonEnviar = document.getElementById("enviar");
+        let botonEnviar = document.getElementById("enviar")
+        botonEnviar.disabled = false;
 
-        botonEnviar.addEventListener("click", async(e) => {
-            e.preventDefault();
-            await saveVisitor(formObject);
 
-            //window.location.href = "./index.html";
-            //volver();
-        });
 
-        //Boton volver al inicio
-        let volverHome = document.getElementById("volverHome");
+        if (botonEnviar.addEventListener("click", async(e) => {
+                e.preventDefault();
+                await saveVisitor(formObject);
+                botonEnviar.disabled = true;
 
-        volverHome.addEventListener("click", () => {
-            alert("Envío exitoso. Bienvenid@");
-            window.location.href = "./index.html";
-        });
+                setTimeout(() => {
+                    alert("Envío exitoso. Bienvenid@")
+                    window.location.href = "./index.html";
+                }, 1100);
+
+            })) {
+
+        } else {
+            botonEnviar.disabled = false;
+        }
+
     });
     return true;
 };
