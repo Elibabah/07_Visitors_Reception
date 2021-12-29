@@ -143,7 +143,8 @@ let keepForm = () => {
         }
 
         // Botón tomar Foto
-        document.getElementById("snap").addEventListener("click", () => {
+        let tomarFoto = document.getElementById("snap")
+        tomarFoto.addEventListener("click", () => {
             // reader.readAsDataURL(file);
 
             function getBase64Image(video) {
@@ -165,24 +166,38 @@ let keepForm = () => {
             context.drawImage(video, 0, 0, 320, 320);
         });
 
-        //Botón enviar objeto a firestore
-        let botonEnviar = document.getElementById("enviar");
+        //----------------// Botón enviar objeto a firestore //----------------//
+        let botonEnviar = document.getElementById("enviar")
+        botonEnviar.disabled = false;
 
-        botonEnviar.addEventListener("click", async(e) => {
-            e.preventDefault();
-            await saveVisitor(formObject);
 
-            //window.location.href = "./index.html";
-            //volver();
-        });
+        //Validación de foto para enviar a firestore
+        /* let foto = document.getElementById("canvas").value;
 
-        //Boton volver al inicio
-        let volverHome = document.getElementById("volverHome");
+         if (foto == "" || foto == null) {
+             alert("Por favor, captura tu foto");
+             return false;
+         } else {*/
 
-        volverHome.addEventListener("click", () => {
-            alert("Envío exitoso. Bienvenid@");
-            window.location.href = "./index.html";
-        });
+
+        //Desactivar botón después de ser ejecutado
+        if (botonEnviar.addEventListener("click", async(e) => {
+                e.preventDefault();
+                await saveVisitor(formObject);
+                botonEnviar.disabled = true;
+
+                setTimeout(() => {
+                    alert("Envío exitoso. Bienvenid@")
+                    window.location.href = "./index.html";
+                }, 1100);
+
+            })) {
+
+        } else {
+            botonEnviar.disabled = false;
+        }
+        /*   }
+        return true;*/
     });
     return true;
 };
