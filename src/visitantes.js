@@ -57,17 +57,6 @@ let cleanPeople = () => {
     document.getElementById("people").innerHTML = "";
 };
 
-/*---------- Limpiar valores inputs ---------------*/
-
-/*let cleanInputs = () => {
-    document.getElementById("nombre") = "";
-    document.getElementById("contact") = "";
-    document.getElementById("companias") = "";
-    document.getElementById("persona") = "";
-    document.getElementById("asunto") = "";
-    document.getElementById("si-no") = "";
-}*/
-
 /*---------- Función botón guardar datos --------------*/
 
 let keepForm = () => {
@@ -126,8 +115,6 @@ let keepForm = () => {
 
         console.log(formObject);
 
-        //localStorage.setItem('objectToPass', formObject);
-        //console.log(localStorage.setItem('objectToPass', formObject));
 
         let canvas = document.getElementById("canvas");
         let context = canvas.getContext("2d");
@@ -170,34 +157,35 @@ let keepForm = () => {
         let botonEnviar = document.getElementById("enviar")
         botonEnviar.disabled = false;
 
-
-        //Validación de foto para enviar a firestore
-        /* let foto = document.getElementById("canvas").value;
-
-         if (foto == "" || foto == null) {
-             alert("Por favor, captura tu foto");
-             return false;
-         } else {*/
-
-
         //Desactivar botón después de ser ejecutado
         if (botonEnviar.addEventListener("click", async(e) => {
-                e.preventDefault();
-                await saveVisitor(formObject);
-                botonEnviar.disabled = true;
 
-                setTimeout(() => {
-                    alert("Envío exitoso. Bienvenid@")
-                    window.location.href = "./index.html";
-                }, 1100);
+                //Validación de foto para enviar a firestore
+                if (formObject.hasOwnProperty('foto')) {
 
-            })) {
+                    e.preventDefault();
+                    await saveVisitor(formObject);
+                    botonEnviar.disabled = true;
+
+                    setTimeout(() => {
+                        alert("Envío exitoso. Bienvenid@")
+                        window.location.href = "./index.html";
+                    }, 1100);
+
+
+                } else {
+                    alert("Por favor, captura tu foto")
+                }
+
+            }))
+
+        {
 
         } else {
             botonEnviar.disabled = false;
         }
-        /*   }
-        return true;*/
+
+
     });
     return true;
 };
