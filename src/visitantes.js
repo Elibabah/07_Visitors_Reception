@@ -131,6 +131,8 @@ let keepForm = () => {
 
         // Botón tomar Foto
         let tomarFoto = document.getElementById("snap")
+
+
         tomarFoto.addEventListener("click", () => {
             // reader.readAsDataURL(file);
 
@@ -151,6 +153,10 @@ let keepForm = () => {
             console.log(formObject);
             //Pintar en canvas
             context.drawImage(video, 0, 0, 320, 320);
+
+            tomarFoto.innerHTML = `
+                <button id="snap2" class="btn btn-secundary">Tomar de nuevo</button>
+            `
         });
 
         //----------------// Botón enviar objeto a firestore //----------------//
@@ -166,6 +172,7 @@ let keepForm = () => {
                     e.preventDefault();
                     await saveVisitor(formObject);
                     botonEnviar.disabled = true;
+                    tomarFoto.disabled = true;
 
                     setTimeout(() => {
                         alert("Envío exitoso. Bienvenid@")
