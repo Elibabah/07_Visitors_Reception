@@ -138,8 +138,8 @@ function manDatos() {
         fechasGraph[i] = partes[1] + partes[2];
     }
 
-    console.log(numeroFechasGraph);
-    console.log(fechasGraph);
+    //console.log(numeroFechasGraph);
+    //console.log(fechasGraph);
 
     for (let i = 0; i < 20; i++) {
         visitantes[i] = 0;
@@ -216,8 +216,8 @@ function renderVisitors() {
             //console.log(lista);
             document.getElementById("visitantesEnLista").innerHTML += `
     <tr id="listaPersonas">
-        <td id="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
+        <td data-id="${lista.id}" class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
+        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
         <td>${lista.checkOutTime.toDate().toLocaleTimeString()}</td>
     </tr>
 <!-- Modal -->
@@ -228,7 +228,7 @@ function renderVisitors() {
         <h5 class="modal-title" id="staticBackdropLabel">${lista.nombre}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="canvas-container">
+            <div class="canvas-container" id="table${lista.id}">
 
                     </div>
         <div class="modal-body">
@@ -245,14 +245,14 @@ function renderVisitors() {
 </div>
 </div>
 `;
-            console.log(lista)
+            //console.log(lista)
         } else {
             //console.log(lista);
             document.getElementById("visitantesEnLista").innerHTML += `
     <tr id="listaPersonas">
-        <td id="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.empresa}</td>
-        <td><button type="button" class="btn btn-primary btn-update btn-sm" data-id="${lista.id}">Actualizar</button></td>
+        <td data-id="${lista.id}" class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
+        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
+        <td><button type="button" class="btn btn-primary btn-update btn-sm" data-id="${lista.id}">Check Out</button></td>
     </tr>
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop${lista.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -262,7 +262,7 @@ function renderVisitors() {
         <h5 class="modal-title" id="staticBackdropLabel">${lista.nombre}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="canvas-container">
+            <div class="canvas-container" id="table${lista.id}">
 
                     </div>
         <div class="modal-body">
@@ -294,6 +294,15 @@ function renderVisitors() {
                 checkOutTime: new Date()
             })
         })
+    })
+    const btnsImage = document.querySelectorAll('.persona')
+    btnsImage.forEach(nombre => {
+      nombre.addEventListener('click', async(e) => {
+        console.log(e.target.dataset.id)
+        let doc = await getVisit(e.target.dataset.id)
+        console.log(doc.data())
+        document.getElementById(`table${e.target.dataset.id}`).innerHTML = `<img id="imagenFotoAdmin" src="${doc.data().foto}" alt="Foto visitante no registrada">`
+      })
     })
 }
 

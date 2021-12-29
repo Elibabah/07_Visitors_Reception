@@ -181,7 +181,11 @@ main {
     box-shadow: var(--shadow);
     padding: 1rem;
 }
-
+.btn-update {
+    font-size: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*----- Lista de personas en dashboard -----*/
 
