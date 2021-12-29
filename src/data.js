@@ -30,7 +30,7 @@ export async function traerDatos() {
             })
             //console.log(dataAdmin)
         sortedData = dataAdmin.slice().sort((a, b) => b.date - a.date); //ordena los visitantes del mas reciente al mas antiguo
-        console.log(sortedData)
+        //console.log(sortedData)
         SepararDatos()
         pintarDatos()
         manDatos()
@@ -189,7 +189,18 @@ function manDatos() {
             visitantes[19] += 1;
         }
     }
-
+    
+    for(let porHora of sortedData) {
+        let parts = porHora.date.toDate().toLocaleTimeString().split(":")
+        let sisHor = parts[2].split(" ")
+        //console.log(sisHor[1])
+        //console.log(porHora.date.toDate().toLocaleTimeString())
+        if(sisHor[1] == 'PM') {
+            console.log(parseInt(parts[0]) + 12)
+        } else {
+            console.log(parseInt(parts[0]))
+        }
+    }
 }
 
 function renderGraph() {
