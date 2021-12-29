@@ -152,3 +152,9 @@ camara {
     margin-bottom: 3%;
     margin-top: 2%;
 }
+
+#snap2 {
+    border-style: none;
+    background-color: #005eff;
+    color: #FFF;
+}
