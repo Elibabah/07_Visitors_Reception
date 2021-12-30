@@ -141,15 +141,20 @@ camara {
     padding: 1rem;
 }
 
-#snap,
-#enviar {
+#snap {
     background-color: #127dd6;
     border-style: none;
 }
 
-#volverHome {
+#enviar {
     padding-left: 20%;
     padding-right: 20%;
     margin-bottom: 3%;
     margin-top: 2%;
+}
+
+#snap2 {
+    border-style: none;
+    background-color: #005eff;
+    color: #FFF;
 }

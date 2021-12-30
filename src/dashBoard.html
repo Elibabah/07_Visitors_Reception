@@ -1,137 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Ícono-->
     <link rel="icon" href="../assets/UI/logo.png" />
     <meta name="description" content="" />
-    <link
-      rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <title>DashBoard</title>
     <link rel="stylesheet" href="dashBoard.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="main-content">
-      <header>
-        <div class="header-title-wrapper">
-          <div class="header-title">
-            <h1>Analítica</h1>
-            <p>
-              Pantalla de análisis de visitantes
-              <span class="las la-chart-line"></span>
-            </p>
-          </div>
-        </div>
-        <div class="header-action">
-          <button class="btn btn-main" id="cerrarSesion">
+        <header>
+            <div class="header-title-wrapper">
+                <div class="header-title">
+                    <h1>Analítica</h1>
+                    <p>
+                        Pantalla de análisis de visitantes
+                        <span class="las la-chart-line"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="header-action">
+                <button class="btn btn-main" id="cerrarSesion">
             <span class="las la-user-edit"></span>
             Cerrar sesión
           </button>
-        </div>
-      </header>
+            </div>
+        </header>
 
-      <main>
-        <section>
-          <h3 class="section-head">Toda la vista</h3>
-          <div class="analytics">
-            <div class="analytic">
-              <div class="analytic-icon">
-                <span class="las la-id-card"></span>
-              </div>
-              <div class="analytic-info">
-                <h4>Visitantes del día</h4>
-                <h1 id="visitantesDiarios">6 V</h1>
-              </div>
-            </div>
-            <div class="analytic">
-              <div class="analytic-icon">
-                <span class="las la-user"></span>
-              </div>
-              <div class="analytic-info">
-                <h4>Visitantes semanales</h4>
-                <h1 id="visitantesSemanales">50 V</h1>
-              </div>
-            </div>
-            <div class="analytic">
-              <div class="analytic-icon">
-                <span class="las la-user-alt"></span>
-              </div>
-              <div class="analytic-info">
-                <h4>Visitantes mensuales</h4>
-                <h1 id="visitantesMensuales">204 V</h1>
-              </div>
-            </div>
-            <div class="analytic">
-              <div class="analytic-icon">
-                <span class="las la-users"></span>
-              </div>
-              <div class="analytic-info">
-                <h4>Visitantes totales</h4>
-                <h1 id="visitantesTotales">1.6K V</h1>
-              </div>
-            </div>
-          </div>
-        </section>
+        <main>
+            <section>
+                <h3 class="section-head">Toda la vista</h3>
+                <div class="analytics">
+                    <div class="analytic">
+                        <div class="analytic-icon">
+                            <span class="las la-id-card"></span>
+                        </div>
+                        <div class="analytic-info">
+                            <h4>Visitantes del día</h4>
+                            <h1 id="visitantesDiarios">6 V</h1>
+                        </div>
+                    </div>
+                    <div class="analytic">
+                        <div class="analytic-icon">
+                            <span class="las la-user"></span>
+                        </div>
+                        <div class="analytic-info">
+                            <h4>Visitantes semanales</h4>
+                            <h1 id="visitantesSemanales">50 V</h1>
+                        </div>
+                    </div>
+                    <div class="analytic">
+                        <div class="analytic-icon">
+                            <span class="las la-user-alt"></span>
+                        </div>
+                        <div class="analytic-info">
+                            <h4>Visitantes mensuales</h4>
+                            <h1 id="visitantesMensuales">204 V</h1>
+                        </div>
+                    </div>
+                    <div class="analytic">
+                        <div class="analytic-icon">
+                            <span class="las la-users"></span>
+                        </div>
+                        <div class="analytic-info">
+                            <h4>Visitantes totales</h4>
+                            <h1 id="visitantesTotales">1.6K V</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section>
-          <div class="block-grid">
-            <div class="visitor-list">
-              <h3 class="section-head" id="headVisitantes">
-                Lista de visitantes
-              </h3>
-              <div class="list-content">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Compañia</th>
-                    </tr>
-                  </thead>
-                  <tbody id="visitantesEnLista"></tbody>
-                </table>
-              </div>
-            </div>
+            <section>
+                <div class="block-grid">
+                    <div class="visitor-list">
+                        <h3 class="section-head" id="headVisitantes">
+                            Lista de visitantes
+                        </h3>
+                        <div class="list-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Entrada</th>
+                                        <th>Salida</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="visitantesEnLista"></tbody>
+                            </table>
+                        </div>
+                    </div>
 
-            <div class="graph-card">
-              <h3 class="section-head" id="headGrafica">
-                Visitantes en los ultimos 15 días
-              </h3>
-              <div class="graph-content">
-                <div class="graph-head">
-                  <div class="icon-wrapper">
-                    <!-- <div class="icon">
+                    <div class="graph-card">
+                        <h3 class="section-head" id="headGrafica">
+                            Visitantes en los ultimos 15 días
+                        </h3>
+                        <div class="graph-content">
+                            <div class="graph-head">
+                                <div class="icon-wrapper">
+                                    <!-- <div class="icon">
                       <span class="las la-eye"></span>
                     </div>
                     <div class="icon">
                       <span class="las la-clock"></span>
                     </div> -->
-                  </div>
-                  <div class="graph-select">
-                    <!-- <select name="" id="">
+                                </div>
+                                <div class="graph-select">
+                                    <!-- <select name="" id="">
                       <option value="">December</option>
                     </select> -->
-                  </div>
+                                </div>
+                            </div>
+                            <div class="graph-board">
+                                <canvas id="myChart" width="100%" height="50px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="graph-card">
+                        <h3 class="section-head" id="headGrafica">
+                            Aflujo por hora
+                        </h3>
+                        <div class="graph-content">
+                            <div class="graph-head">
+                                <div class="icon-wrapper">
+                                    <!-- <div class="icon">
+                      <span class="las la-eye"></span>
+                    </div>
+                    <div class="icon">
+                      <span class="las la-clock"></span>
+                    </div> -->
+                                </div>
+                                <div class="graph-select">
+                                    <!-- <select name="" id="">
+                      <option value="">December</option>
+                    </select> -->
+                                </div>
+                            </div>
+                            <div class="graph-board">
+                                <canvas id="myChart3" width="100%" height="50px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="graph-card">
+                        <h3 class="section-head" id="headGrafica">
+                            Aflujo por empresa
+                        </h3>
+                        <div class="graph-content">
+                            <div class="graph-head">
+                                <div class="icon-wrapper">
+                                    <!-- <div class="icon">
+                      <span class="las la-eye"></span>
+                    </div>
+                    <div class="icon">
+                      <span class="las la-clock"></span>
+                    </div> -->
+                                </div>
+                                <div class="graph-select">
+                                    <!-- <select name="" id="">
+                      <option value="">December</option>
+                    </select> -->
+                                </div>
+                            </div>
+                            <div class="graph-board">
+                                <canvas id="myChart2" width="100%" height="50px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="graph-board">
-                  <canvas id="myChart" width="100%" height="50px"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+            </section>
+        </main>
     </div>
     <!-- FIREBASE -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -142,28 +189,25 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
 
     <script>
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDUalN6rqWDDMQ1Y0WoGgV7QIqw5m8T-08",
-        authDomain: "visitor-reception-a8907.firebaseapp.com",
-        projectId: "visitor-reception-a8907",
-        storageBucket: "visitor-reception-a8907.appspot.com",
-        messagingSenderId: "345085369922",
-        appId: "1:345085369922:web:8e278452017f18737fd7db",
-      };
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUalN6rqWDDMQ1Y0WoGgV7QIqw5m8T-08",
+            authDomain: "visitor-reception-a8907.firebaseapp.com",
+            projectId: "visitor-reception-a8907",
+            storageBucket: "visitor-reception-a8907.appspot.com",
+            messagingSenderId: "345085369922",
+            appId: "1:345085369922:web:8e278452017f18737fd7db",
+        };
 
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
     <!--Script Chart.js-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!--dashboard.js-->
     <script src="dashboard.js" type="module"></script>
-  </body>
+</body>
+
 </html>
