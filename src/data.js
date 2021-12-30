@@ -10,6 +10,7 @@ let msMonth = 2629750000;
 let numeroFechasGraph = [];
 let fechasGraph = [];
 let visitantes = [];
+let visitantesHora = [];
 
 const db = firebase.firestore();
 
@@ -189,18 +190,53 @@ function manDatos() {
             visitantes[19] += 1;
         }
     }
-    
+
+    for (let i = 0; i < 11; i++) {
+        visitantesHora[i] = 0;
+    }
+    let horas = []
     for(let porHora of sortedData) {
         let parts = porHora.date.toDate().toLocaleTimeString().split(":")
+        //console.log(parts)
         let sisHor = parts[2].split(" ")
         //console.log(sisHor[1])
         //console.log(porHora.date.toDate().toLocaleTimeString())
         if(sisHor[1] == 'PM') {
-            console.log(parseInt(parts[0]) + 12)
+            //console.log(parseInt(parts[0]) + 12)
+            horas.push(parseInt(parts[0]) + 12)
         } else {
-            console.log(parseInt(parts[0]))
+            //console.log(parseInt(parts[0]))
+            horas.push(parseInt(parts[0]))
         }
     }
+    for(let hours of horas) {
+        if (hours == 8) {
+            visitantesHora[0] += 1;
+        } else if (hours == 9) {
+            visitantesHora[1] += 1;
+        } else if (hours == 10) {
+            visitantesHora[2] += 1;
+        } else if (hours == 11) {
+            visitantesHora[3] += 1;
+        } else if (hours == 12) {
+            visitantesHora[4] += 1;
+        } else if (hours == 13) {
+            visitantesHora[5] += 1;
+        } else if (hours == 14) {
+            visitantesHora[6] += 1;
+        } else if (hours == 15) {
+            visitantesHora[7] += 1;
+        } else if (hours == 16) {
+            visitantesHora[8] += 1;
+        } else if (hours == 17) {
+            visitantesHora[9] += 1;
+        } else if (hours == 18) {
+            visitantesHora[10] += 1;
+        } 
+
+    }
+
+    console.log(visitantesHora)
 }
 
 function renderGraph() {
@@ -212,6 +248,11 @@ function renderGraph() {
     myChart2.data.datasets[0].data = visitantes; //Y
     myChart2.data.labels = companias; // X
     myChart2.update();
+
+    let horas = ["8","9","10","11","12","13","14","15","16","17","18"]
+    myChart3.data.datasets[0].data = visitantesHora; //Y
+    myChart3.data.labels = horas; // X
+    myChart3.update();
 }
 
 
@@ -228,7 +269,7 @@ function renderVisitors() {
             document.getElementById("visitantesEnLista").innerHTML += `
     <tr id="listaPersonas">
         <td data-id="${lista.id}" class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
+        <td data-id="${lista.id}"  class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
         <td>${lista.checkOutTime.toDate().toLocaleTimeString()}</td>
     </tr>
 <!-- Modal -->
@@ -262,7 +303,7 @@ function renderVisitors() {
             document.getElementById("visitantesEnLista").innerHTML += `
     <tr id="listaPersonas">
         <td data-id="${lista.id}" class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.nombre}</td>
-        <td value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
+        <td data-id="${lista.id}" class="persona" value="${lista}" data-bs-toggle="modal" data-bs-target="#staticBackdrop${lista.id}">${lista.date.toDate().toLocaleTimeString()}</td>
         <td><button type="button" class="btn btn-primary btn-update btn-sm" data-id="${lista.id}">Check Out</button></td>
     </tr>
 <!-- Modal -->
@@ -297,8 +338,8 @@ function renderVisitors() {
     const btnsUpdate = document.querySelectorAll('.btn-update')
     btnsUpdate.forEach(btn => {
         btn.addEventListener('click', async(e) => {
-            console.log(e.target.dataset.id)
-            console.log('clicked')
+            //console.log(e.target.dataset.id)
+            //console.log('clicked')
             let doc = await getVisit(e.target.dataset.id)
             console.log(doc.data())
             await updateData(e.target.dataset.id, {
@@ -309,9 +350,9 @@ function renderVisitors() {
     const btnsImage = document.querySelectorAll('.persona')
     btnsImage.forEach(nombre => {
       nombre.addEventListener('click', async(e) => {
-        console.log(e.target.dataset.id)
+        //console.log(e.target.dataset.id)
         let doc = await getVisit(e.target.dataset.id)
-        console.log(doc.data())
+        //console.log(doc.data())
         document.getElementById(`table${e.target.dataset.id}`).innerHTML = `<img id="imagenFotoAdmin" src="${doc.data().foto}" alt="Foto visitante no registrada">`
       })
     })
