@@ -42,6 +42,13 @@ export async function traerDatos() {
 }
 
 function SepararDatos() {
+
+    fechas = [];
+    visitantesHora = [];
+    todayVisitors = []
+    weaklyVisitors = []
+    monthVisitors = []
+    moreMonth = []
     let today = new Date();
     let todayString = today.toDateString();
     let todayms = today.getTime();
@@ -84,6 +91,7 @@ function pintarDatos() {
 }
 
 function manDatos() {
+
     for (let visitor of sortedData) {
         let today = new Date();
         today = today.toDateString();
@@ -195,13 +203,13 @@ function manDatos() {
         visitantesHora[i] = 0;
     }
     let horas = []
-    for(let porHora of sortedData) {
+    for (let porHora of sortedData) {
         let parts = porHora.date.toDate().toLocaleTimeString().split(":")
-        //console.log(parts)
+            //console.log(parts)
         let sisHor = parts[2].split(" ")
-        //console.log(sisHor[1])
-        //console.log(porHora.date.toDate().toLocaleTimeString())
-        if(sisHor[1] == 'PM') {
+            //console.log(sisHor[1])
+            //console.log(porHora.date.toDate().toLocaleTimeString())
+        if (sisHor[1] == 'PM') {
             //console.log(parseInt(parts[0]) + 12)
             horas.push(parseInt(parts[0]) + 12)
         } else {
@@ -209,7 +217,7 @@ function manDatos() {
             horas.push(parseInt(parts[0]))
         }
     }
-    for(let hours of horas) {
+    for (let hours of horas) {
         if (hours == 8) {
             visitantesHora[0] += 1;
         } else if (hours == 9) {
@@ -232,14 +240,17 @@ function manDatos() {
             visitantesHora[9] += 1;
         } else if (hours == 18) {
             visitantesHora[10] += 1;
-        } 
+        }
 
     }
 
     console.log(visitantesHora)
 }
 
+
+
 function renderGraph() {
+
     myChart.data.datasets[0].data = numeroFechasGraph.reverse().slice();
     myChart.data.labels = fechasGraph.reverse().slice();
     myChart.update();
@@ -249,10 +260,11 @@ function renderGraph() {
     myChart2.data.labels = companias; // X
     myChart2.update();
 
-    let horas = ["8","9","10","11","12","13","14","15","16","17","18"]
+    let horas = ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"]
     myChart3.data.datasets[0].data = visitantesHora; //Y
     myChart3.data.labels = horas; // X
     myChart3.update();
+
 }
 
 
@@ -337,6 +349,7 @@ function renderVisitors() {
     }
     const btnsUpdate = document.querySelectorAll('.btn-update')
     btnsUpdate.forEach(btn => {
+
         btn.addEventListener('click', async(e) => {
             //console.log(e.target.dataset.id)
             //console.log('clicked')
@@ -349,12 +362,13 @@ function renderVisitors() {
     })
     const btnsImage = document.querySelectorAll('.persona')
     btnsImage.forEach(nombre => {
-      nombre.addEventListener('click', async(e) => {
-        //console.log(e.target.dataset.id)
-        let doc = await getVisit(e.target.dataset.id)
-        //console.log(doc.data())
-        document.getElementById(`table${e.target.dataset.id}`).innerHTML = `<img id="imagenFotoAdmin" src="${doc.data().foto}" alt="Foto visitante no registrada">`
-      })
+
+        nombre.addEventListener('click', async(e) => {
+            //console.log(e.target.dataset.id)
+            let doc = await getVisit(e.target.dataset.id)
+                //console.log(doc.data())
+            document.getElementById(`table${e.target.dataset.id}`).innerHTML = `<img id="imagenFotoAdmin" src="${doc.data().foto}" alt="Foto visitante no registrada">`
+        })
     })
 }
 
