@@ -42,6 +42,10 @@ export async function traerDatos() {
 }
 
 function SepararDatos() {
+   todayVisitors = []
+   weaklyVisitors = []
+   monthVisitors = []
+   moreMonth = [] 
     let today = new Date();
     let todayString = today.toDateString();
     let todayms = today.getTime();
